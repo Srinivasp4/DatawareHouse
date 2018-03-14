@@ -7,13 +7,13 @@ import {WarehouseSearch} from './warehouse';
   templateUrl: './warehouse-list.component.html',
   styleUrls: ['./warehouse-list.component.css']
 })
-export class WarehouseListComponent implements OnInit {
+export class WarehouseListComponent {
 
   
   displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   dataSource = new MatTableDataSource(WAREHOUSE);
 
-  warehouseSearch = new WarehouseSearch('', '', '', '');
+  warehouseSearch = new WarehouseSearch('', '', '', '', '');
   
   //Regions dropdown
   regions : any[] = [{name:'APAC'}, {name:'APAC2'}, {name:'APAC3'}];
@@ -50,6 +50,7 @@ export class WarehouseListComponent implements OnInit {
     this.dataSource.sort = this.sort;
   }
 
+  OnInit(){}
 }
 
 export interface Warehouse {
