@@ -1,0 +1,93 @@
+<div style="width: 60%; margin-top: 50px">
+	<h4>Warehouse List</h4>
+	<hr />
+	<form class="form-horizontal">
+		<div class="form-group">
+			<div class="col-sm-8">
+				<mat-form-field> <input matInput type="text"
+					class="text form-control" [(ngModel)]="warehouseSearch.searchStr"
+					name="searchStr" #searchStr="ngModel"
+					(keyup)="applyFilter($event.target.value)"> </mat-form-field>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-6">
+				<select id="company" class="form-control"
+					[(ngModel)]="warehouseSearch.region" name="region"
+					#region="ngModel">
+					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
+				</select>
+			</div>
+			<div class="form-group col-xs-6">
+				<select class="form-control" [(ngModel)]="warehouseSearch.country"
+					name="country" #country="ngModel">
+					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
+				</select>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="form-group col-xs-2">
+				<select class="form-control"
+					[(ngModel)]="warehouseSearch.logicalComp" name="logicalComp"
+					#logicalComp="ngModel">
+					<option *ngFor="let logicalComp of logicalComparisions"
+						[ngValue]="logicalComp.symbol">{{logicalComp.name}}</option>
+				</select>
+			</div>
+			<div class="form-group col-xs-4">
+				<select id="company" class="form-control">
+					<option>small</option>
+					<option>medium</option>
+					<option>large</option>
+				</select>
+			</div>
+			<div class="form-group col-xs-4">
+				<select class="form-control">
+					<option>small</option>
+					<option>medium</option>
+					<option>large</option>
+				</select>
+			</div>
+		</div>
+
+
+<div class="example-container mat-elevation-z8">
+  <mat-table #table [dataSource]="dataSource" matSort>
+
+	<ng-container matColumnDef="no">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> No. </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.no}} </mat-cell>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="warehouse">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> warehouse </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.warehouse}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="region">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> region </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="country">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> country </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="segments">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> segments </mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.segments}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+</div>
+
+</form>
+</div>
