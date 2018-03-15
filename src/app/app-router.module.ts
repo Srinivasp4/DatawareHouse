@@ -7,8 +7,8 @@ import { MapComponent } from './map/map.component';
 
 const appRoutes: Routes = [
   { path: '', component: WarehouseListComponent },
-  { path: 'warehouse', component: WarehouseListComponent },
-  { path: 'map', component: MapComponent }
+  { path: 'sites', component: WarehouseListComponent },
+  { path: 'calculator', component: MapComponent }
 ];
 
 @NgModule({

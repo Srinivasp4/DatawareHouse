@@ -1,7 +1,6 @@
 <div style="width:80%; margin:0 auto;">
 <!-- Wrap all page content here -->
 <div id="wrap">
-  
   <!-- Fixed navbar -->
   <div class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -16,18 +15,13 @@
       <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">Home</a></li>
-          <li><a routerLink="/warehouse" >warehouse</a></li>
-          <li><a routerLink="/map" >Map</a></li>
+          <li><a routerLink="/sites">Sites</a></li>
+          <li><a routerLink="/calculator">Calculation</a></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <a routerLink="/help" class="dropdown-toggle" data-toggle="dropdown">Help <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li class="divider"></li>
-              <li class="dropdown-header">Nav header</li>
-              <li><a href="#">Separated link</a></li>
-              <li><a href="#">One more separated link</a></li>
+              <li><a routerLink="/quiz">Quiz</a></li>
+              <li><a routerLink="/faq">FAQ</a></li>
             </ul>
           </li>
         </ul>
@@ -37,18 +31,11 @@
   
   <!-- Begin page content -->
   <div class="center-container">
-    
     <div class="center-row">
       <div class="col-xs-6"></div>
       <div class="col-xs-6"></div>
     </div>
-    
-
-
     <router-outlet></router-outlet>
-    
-
-
     <div class="center-row">
       <div class="col-xs-6"></div>
       <div class="col-xs-6"></div>
@@ -56,9 +43,56 @@
   </div>
 </div>
 </div>
+    <!--Footer-->
+<footer class="page-footer font-small blue-grey lighten-5 pt-0">
 
-<div id="wrap" id="footer">
-  <div class="container">
-    <p>&nbsp; Footer comes over here</p>
-  </div>
-</div>
+    <div>
+        <div class="container">
+            <!--Grid row-->
+            <div class="row py-4 d-flex">
+                 <!-- Copyright-->
+                <div class="col-6 col-md-6 footer-copyright text-center">
+                    © 2017 Mars,Incorporated and its Affiliates.All Rights Reserved.
+                </div>
+        <!--/.Copyright -->
+                
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-6 col-md-6 text-center text-md-right">
+                    <!--Facebook-->
+                    Follow Mars social media policy
+                    <a class="fb-ic ml-0">
+                        <i class="fa fa-facebook white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Twitter-->
+                    <a class="tw-ic">
+                        <i class="fa fa-twitter white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Google +-->
+                    <a class="gplus-ic">
+                        <i class="fa fa-google-plus white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Linkedin-->
+                    <a class="li-ic">
+                        <i class="fa fa-linkedin white-text mr-lg-4"> </i>
+                    </a>
+                    <!--Instagram-->
+                    <a class="ins-ic">
+                        <i class="fa fa-instagram white-text mr-lg-4"> </i>
+                    </a>
+                </div>
+                <!--Grid column-->
+
+            </div>
+            <!--Grid row-->
+        </div>
+    </div>
+
+    
+
+   
+
+</footer>
+<!--/.Footer-->
+ 

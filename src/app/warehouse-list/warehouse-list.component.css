@@ -19,3 +19,67 @@
   overflow: auto;
   max-height: 500px;
 }
+
+.primary-search{
+  display: block;
+  width: 100%;
+  background-image: none;
+  border: 1px solid #ccc;
+}
+
+.primary-search:focus {
+  border-color: #66afe9;
+}
+
+hr { 
+  display: block;
+  margin-top: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 2px;
+  border-color: #66afe9;
+}
+.warehouse-list{
+  margin-left:-38px;
+  margin-top: -40px;
+  
+}
+.filter-text{
+  color:#66afe9;
+  margin-bottom:2px;
+}
+.secondary-flter{
+  margin-left: 70px;
+}
+.secondary-flter-country{
+  margin-left:5px;
+}
+.secondary-flter-segmentvalue{
+  
+  width:45%;
+}
+.secondary-flter-segment{
+  margin-right:1px;
+  width:45%;
+}
+.warehouse-map{
+  margin-top:10px;
+}
+.warehouses-count {
+  text-align:right;
+  margin-bottom:10px;
+}
+.export{
+  text-align:right;
+}
+.text-color{
+  color:#66afe9;
+}
+
+.calculator-secondarysearch{
+  margin-right:10px;
+}
+.check-button{
+  margin-left:-15px;
+}

@@ -51,3 +51,11 @@ body {
   display: table-cell;
   border:1px solid #eee
 }
+
+.navbar-collapse{
+  background-color: #bcd2ee;
+}
+
+.page-footer{
+  margin-top : 50px;
+}
