@@ -1,97 +1,76 @@
-
-	<div style="width: 60%; margin-top: 50px">
+<div style="width: 60%;">
 	<div class="warehouse-list text-color">
-	<h4><b>Warehouse List</b></h4>
+	<h4><b>Calculation - Contract time</b></h4>
 	<hr>
 	</div>
 
 	<form class="form-horizontal">
-		<div class="form-group">
-			<div class="col-sm-8">
-				<mat-form-field > <input matInput type="text"
-					class="text form-control primary-search" [(ngModel)]="warehouseSearch.searchStr"
-					name="searchStr" #searchStr="ngModel"
-					(keyup)="applyFilter($event.target.value)"> </mat-form-field>
-			</div>
-		</div>
-		<div class="row">
-				<div class="col-12 col-md-12 text-center text-md-right filter-text"> <b>-- Filters</b> </div>
-		</div>
 
-		<div class="row secondary-flter">
-			<div class="form-group col-xs-6 secondary-flter-region">
+		<div class="row col-xs-12">
+			<div class="form-group col-xs-6 calculator-secondarysearch">
 				<select id="company" class="form-control"
-					[(ngModel)]="warehouseSearch.region" name="region"
+					[(ngModel)]="calculationSearch.region" name="region"
 					#region="ngModel">
 					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
 				</select>
 			</div>
 			
-			<div class="form-group col-xs-6 secondary-flter-country">
-				<select class="form-control" [(ngModel)]="warehouseSearch.country"
+			<div class="form-group col-xs-6">
+				<select class="form-control" [(ngModel)]="calculationSearch.country"
 					name="country" #country="ngModel">
 					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
 				</select>
 			</div>
 		</div>
 
-		<div class="row ">
-			<div class="form-group col-xs-2 secondary-flter-logical">
-				<select class="form-control"
-					[(ngModel)]="warehouseSearch.logicalComp" name="logicalComp"
-					#logicalComp="ngModel" >
-					
-					<option *ngFor="let logicalComp of logicalComparisions" 
-						[ngValue]="logicalComp.symbol">{{logicalComp.name}}</option>
-				</select>
-			</div>
+		<div class="row col-xs-12">
 		
-			<div class="form-group col-xs-5 secondary-flter-segment">
+			<div class="form-group col-xs-6 calculator-secondarysearch">
 				<select id="company" class="form-control"
-					[(ngModel)]="warehouseSearch.filterType" name="region"
+					[(ngModel)]="calculationSearch.region" name="region"
 					#region="ngModel">
-					<option *ngFor="let region of filterType" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
 				</select> 
 			</div>
-			<div class="form-group col-xs-5 secondary-flter-segmentvalue">
-				<select class="form-control" [(ngModel)]="warehouseSearch.filterValue"
+			<div class="form-group col-xs-6">
+				<select class="form-control" [(ngModel)]="calculationSearch.country"
 					name="country" #country="ngModel">
-					<option *ngFor="let country of filterValue" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
 				</select> 
 			</div>
 		</div>
 
 		<div class="row">
-				<div class="col-12 col-md-12 text-center text-md-right filter-text"> 
-						<button class="btn btn-primary" (click)="onFilter()">Add a filter</button> 
+				<div class="col-12 col-md-12 text-center text-md-right filter-text check-button"> 
+						<button class="btn btn-primary" (click)="onSubmit()">CHECK</button> 
 				</div>
 		</div>
 <div class="example-container mat-elevation-z8">
-  <mat-table #table [dataSource]="dataSource" matSort>
+  <mat-table #table [dataSource]="dataSourceCal" matSort>
 
 	<ng-container matColumnDef="no">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color" style="display:none"> No. </mat-header-cell>
       <mat-cell *matCellDef="let element" style="display:none"> {{element.no}} </mat-cell>
     </ng-container>
-    <!-- Position Column -->
+    <!-- Warehouse Column -->
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
       <mat-cell *matCellDef="let element " class="text-color"> {{element.warehouse}} </mat-cell>
     </ng-container>
 
-    <!-- Name Column -->
+    <!-- Region Column -->
     <ng-container matColumnDef="region">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> region </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
     </ng-container>
 
-    <!-- Weight Column -->
+    <!-- Country Column -->
     <ng-container matColumnDef="country">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> country </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.country}} </mat-cell>
     </ng-container>
 
-    <!-- Symbol Column -->
+    <!-- Segments Column -->
     <ng-container matColumnDef="segments">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> segments </mat-header-cell>
       <mat-cell *matCellDef="let element"> {{element.segments}} </mat-cell>

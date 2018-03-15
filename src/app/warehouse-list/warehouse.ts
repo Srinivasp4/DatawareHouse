@@ -16,5 +16,7 @@ export class WarehouseSearch {
   	,public country: string
   	,public segments: string
   	,public logicalComp: string
+    ,public filterType: string
+    ,public filterValue: string
   ) {}
 }

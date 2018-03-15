@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { MatFormFieldModule, MatInputModule } from '@angular/material';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MatSortModule, MatTableModule } from "@angular/material";
@@ -14,12 +15,18 @@ import { WarehouseListComponent } from './warehouse-list/warehouse-list.componen
 import { MapComponent } from './map/map.component';
 import { AppRouterModule } from './app-router.module';
 import {RouterModule} from '@angular/router';
+import { QuizComponent } from './quiz/quiz.component';
+import { FaqComponent } from './faq/faq.component';
+import { CalculationComponent } from './calculation/calculation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WarehouseListComponent,
-    MapComponent
+    MapComponent,
+    QuizComponent,
+    FaqComponent,
+    CalculationComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,8 @@ import {RouterModule} from '@angular/router';
       apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
     }),
     RouterModule,
-    AppRouterModule
+    AppRouterModule,
+    MatExpansionModule
   ],
   providers: [],
   bootstrap: [AppComponent]

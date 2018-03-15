@@ -1,6 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
-import {WarehouseSearch} from './warehouse';
+import {WarehouseSearch, Warehouse} from './warehouse';
 
 @Component({
   selector: 'app-warehouse-list',
@@ -12,18 +12,21 @@ export class WarehouseListComponent {
   
   displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   dataSource = new MatTableDataSource(WAREHOUSE);
-  dataSourceCal = new MatTableDataSource(WAREHOUSECAL);
 
-  warehouseSearch = new WarehouseSearch('', '', '', '', '');
+  warehouseSearch = new WarehouseSearch('', '', '', '', '', '', '');
   
   //Regions dropdown
+  regions: any[] =  [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
+
+  //filterType dropdown
   filterType : any[] = [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
   
   //countries dropdown
+  countries: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
+
+  //filterValue dropdown
   filterValue: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
 
-
-  
   //logicalComparisions dropdown
   logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
 
@@ -31,16 +34,32 @@ export class WarehouseListComponent {
     //filterValue = filterValue.trim(); // Remove whitespace
     //filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
-    this.onSearch();
+
+    //console.log("Length "+ Object.keys(this.dataSource).length);
+    //this.onSearch();
   }
 
-  onSearch() {
+filterdList: Warehouse[];
+
+  onFilter() {
     
-    console.log("searchText " + this.warehouseSearch.searchStr);
-    console.log("region " + this.warehouseSearch.region);
-    console.log("country " + this.warehouseSearch.country);
-	console.log("logicalComp " + this.warehouseSearch.logicalComp);
-    
+      console.log("searchText " + this.warehouseSearch.searchStr);
+      console.log("region " + this.warehouseSearch.region);
+      console.log("country " + this.warehouseSearch.country);
+      console.log("logicalComp " + this.warehouseSearch.logicalComp);
+      console.log("filterType " + this.warehouseSearch.filterType);
+      console.log("filterValue " + this.warehouseSearch.filterValue);
+
+  /*var dataList: Warehouse[] = WAREHOUSE;
+
+  console.log(dataList);
+  for (var i=0; i < dataList.length; i++){
+    console.log(dataList[i].country +"="+ this.warehouseSearch.country);
+    if(dataList[i].country = this.warehouseSearch.country ) {
+      this.filterdList = (dataList[i]);
+    }
+  }
+  this.dataSource= this.filterdList;*/
   }
 
   @ViewChild(MatSort) sort: MatSort;
@@ -73,22 +92,5 @@ const WAREHOUSE: Warehouse[] = [
   {no: 5, warehouse: 'Gadsden Court', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'}
 ]; 
 
-export interface Warehousecal {
-  
-  no: number;
-  warehouse: string;
-  region: string;
-  country: string;
-  segments: string;
-}
-
-
-const WAREHOUSECAL: Warehousecal[] = [
-  {no: 1, warehouse: 'RC ODESSA', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 2, warehouse: 'RC KIEV', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 3, warehouse: 'RC Radem', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 4, warehouse: 'Kiev Warehouse', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'}
-  
-]; 
 
 
