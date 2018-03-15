@@ -12,7 +12,8 @@ import { AgmCoreModule } from '@agm/core';
 import { AppComponent } from './app.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 import { MapComponent } from './map/map.component';
-
+import { AppRouterModule } from './app-router.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,9 @@ import { MapComponent } from './map/map.component';
     MatInputModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
-    })
+    }),
+    RouterModule,
+    AppRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

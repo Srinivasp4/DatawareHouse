@@ -36,7 +36,7 @@ export class WarehouseListComponent {
     console.log("searchText " + this.warehouseSearch.searchStr);
     console.log("region " + this.warehouseSearch.region);
     console.log("country " + this.warehouseSearch.country);
-	console.log("logicalComp " + this.warehouseSearch.logicalComp);
+  	console.log("logicalComp " + this.warehouseSearch.logicalComp);
     
   }
 
