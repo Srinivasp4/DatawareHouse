@@ -13,6 +13,6 @@ import {Component} from '@angular/core';
   `
 })
 export class MapComponent {
-  lat: number = 51.678418;
-  lng: number = 7.809007;
+  lat: number = 17.385044;
+  lng: number = 78.486671;
 }
