@@ -49,20 +49,6 @@ hr {
   color:#66afe9;
   margin-bottom:2px;
 }
-.secondary-flter{
-  margin-left: 70px;
-}
-.secondary-flter-country{
-  margin-left:5px;
-}
-.secondary-flter-segmentvalue{
-  
-  width:45%;
-}
-.secondary-flter-segment{
-  margin-right:1px;
-  width:45%;
-}
 .warehouse-map{
   margin-top:10px;
 }
@@ -78,5 +64,8 @@ hr {
 }
 .fa-sort-down{
   padding:0px;
+}
+.secondary-search{
+  margin-right:10px;
 }
 
