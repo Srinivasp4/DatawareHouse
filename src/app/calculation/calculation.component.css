@@ -24,3 +24,8 @@
     border-width: 2px;
     border-color: #66afe9;
   }
+  .pie-img{
+    height: 300px;
+    width: 136px;
+    margin-left: -42px;
+  }

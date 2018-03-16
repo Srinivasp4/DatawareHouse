@@ -15,6 +15,22 @@ export class CalculationComponent implements OnInit {
 
 	calculationSearch = new CalculationSearch('', '', '', '', '');
 
+	regions: any[] =  [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
+
+  //filterType dropdown
+  filterType : any[] = [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
+  
+  //countries dropdown
+  countries: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
+
+  //filterValue dropdown
+  filterValue: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
+
+  //logicalComparisions dropdown
+	logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
+	
+	
+
 	applyFilter(filterValue: string) {
 		//filterValue = filterValue.trim(); // Remove whitespace
 		//filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
