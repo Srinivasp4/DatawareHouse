@@ -20,3 +20,18 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
+  .text-color{
+    color:#66afe9;
+  }
+  .faq-color{
+    background-color: #66afe9;
+  }
+  hr { 
+    display: block;
+    margin-top: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 2px;
+    border-color: #66afe9;
+  }

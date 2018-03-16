@@ -1,25 +1,90 @@
-<mat-accordion>
+<div class="warehouse-list text-color">
+    <h4><b>FAQ</b></h4>
+    <hr>
+    </div>
+    
+    <mat-accordion>
   <mat-expansion-panel>
-   <mat-expansion-panel-header>
+   <mat-expansion-panel-header class="parametersPanel">
       <mat-panel-title>
-        Self aware panel
+        How can I use the warehouse map?
       </mat-panel-title>
       <mat-panel-description>
         Currently I am {{panelOpenState ? 'open' : 'closed'}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <div class="panel-description">
+    <p>Ware house maps you can use to find near by warehouses which are located</p>
+  </div>
   </mat-expansion-panel>
   <mat-expansion-panel (opened)="panelOpenState = true"
                        (closed)="panelOpenState = false">
-    <mat-expansion-panel-header>
+    <mat-expansion-panel-header class="parametersPanel">
       <mat-panel-title>
-        Self aware panel
+        Where can I find all the information of a warehouse?
       </mat-panel-title>
       <mat-panel-description>
         Currently I am {{panelOpenState ? 'open' : 'closed'}}
       </mat-panel-description>
     </mat-expansion-panel-header>
-    <p>I'm visible because I am open</p>
+    <div class="panel-description">
+    <p>You can find all the information of a warehouse by going to the sites list,via the 'sites' 
+        link in the navigation</p>
+        <p>In the list you need to click on the name of the warehouse you want all the information</p>
+        <p> A new page will open with all the information inform by our administrators.</p>
+    </div>
   </mat-expansion-panel>
+
+  <mat-expansion-panel>
+      <mat-expansion-panel-header class="parametersPanel">
+        <mat-panel-title>
+         How I can use the calculator - contract tome page?
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div class="panel-description">
+      <p> calculator being used to calculate the ware house information across the globe</p>
+      </div>
+    </mat-expansion-panel>
+    <mat-expansion-panel>
+        <mat-expansion-panel-header class="parametersPanel">
+          <mat-panel-title>
+           How I can use the calculator - pallet page?
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div class="panel-description">
+        <p> calculator pallet being used to calculate the ware house information across the globe</p>
+        </div>
+      </mat-expansion-panel>
+      <mat-expansion-panel>
+          <mat-expansion-panel-header class="parametersPanel">
+            <mat-panel-title>
+             How I can use the calculator - contract price page?
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <div class="panel-description">
+          <p> calculator price being used to calculate the ware house information across the globe</p>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+            <mat-expansion-panel-header class="parametersPanel">
+              <mat-panel-title>
+               How can I play the tutorial?
+              </mat-panel-title>
+            </mat-expansion-panel-header >
+            <div class="panel-description">
+            <p> Tutorial pay through site</p>
+            </div>
+          </mat-expansion-panel>
+          <mat-expansion-panel>
+              <mat-expansion-panel-header class="parametersPanel">
+                <mat-panel-title>
+                 Why should I do the quiz?
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div class="panel-description">
+              <p> Quiz inorder to test how good in warehouse</p>
+              </div>
+          </mat-expansion-panel>
 </mat-accordion>
+
+
