@@ -29,3 +29,9 @@
     width: 136px;
     margin-left: -42px;
   }
+  .mat-header-row{
+    border-bottom-color : #66afe9;
+  }
+  .mat-row{
+    border-bottom-color : #ccc;
+  }

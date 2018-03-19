@@ -67,4 +67,11 @@ hr {
 .secondary-search{
   margin-right:10px;
 }
+.mat-header-row{
+  border-bottom-color : #66afe9;
+}
+.mat-row{
+  border-bottom-color : #ccc;
+}
+
 
