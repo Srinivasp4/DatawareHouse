@@ -1,5 +1,5 @@
 
-	<div style="width: 100%; margin-top: 50px">
+	<div style="width: 100%;">
 	<div class="warehouse-list text-color">
 	<h4><b>Warehouse List</b></h4>
 	<hr>
@@ -83,7 +83,11 @@
     <!-- Position Column -->
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
-      <mat-cell *matCellDef="let element " class="text-color"> {{element.warehouse}} </mat-cell>
+			
+			
+			<mat-cell *matCellDef="let element " class="text-color"> 
+				<a routerLink="/quiz">{{element.warehouse}}</a>
+			 </mat-cell>
     </ng-container>
 
     <!-- Name Column -->
@@ -108,6 +112,7 @@
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </mat-table>
 </div>
+
 <div class="row">
 				<div class="col-12 col-md-12 warehouses-count"> 
 						Warehouses found:5
@@ -121,4 +126,5 @@
 
 </form>
 </div>
+
  
