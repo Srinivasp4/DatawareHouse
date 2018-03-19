@@ -10,6 +10,23 @@ import {CalculationSearch} from './calculation';
 })
 export class CalculationComponent implements OnInit {
 
+
+	// Chart starting : refer "https://valor-software.com/ng2-charts/#pieChart"
+	public chartLabels :string[] = ['USA', 'Australia', 'Canada', 'Germany', 'Japan'];
+	public chartData :number[] = [20, 10, 10, 8, 6];
+	public chartType: string = 'doughnut';
+
+	public chartClicked(e:any):void {
+	// todo :: handle on click 
+	//console.log(e);
+	}
+
+	public chartHovered(e:any):void {
+	//tode :: handle on hover
+	//console.log(e);
+	}
+	//chart changes ending 
+
 	displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
 	dataSourceCal = new MatTableDataSource(WAREHOUSECAL);
 
@@ -47,8 +64,6 @@ export class CalculationComponent implements OnInit {
 	ngAfterViewInit() {
 		this.dataSourceCal.sort = this.sort;
 	}
-
-	constructor() { }
 
 	ngOnInit() {
 	}

@@ -7,8 +7,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSortModule, MatTableModule } from "@angular/material";
 import {MatIconModule} from '@angular/material/icon';
-import { AgmCoreModule } from '@agm/core';
+//import { AgmCoreModule } from '@agm/core';
 
+// npm install ng2-charts --save
+// need to run : npm intall chat.js in case of errors related to p-chart tag
+import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
@@ -50,12 +53,14 @@ import { UserComponent } from './user/user.component';
     MatInputModule,
     MatButtonModule, 
     MatToolbarModule ,
-    AgmCoreModule.forRoot({
-      apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
-    }),
+    //AgmCoreModule.forRoot({
+      //apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
+    //}),
     RouterModule,
     AppRouterModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ChartsModule
+
   ],
   exports: [MatButtonModule, MatToolbarModule],
   providers: [],

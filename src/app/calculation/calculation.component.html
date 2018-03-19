@@ -119,19 +119,15 @@
 					<p>MENA: 2</p>
 					<p>NA:30</p>
 			</div>
-			<div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
-          <img src="assets/images/piechart.png" class="pie-img" alt="pieimg">
-			</div>
-			<div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
-					<p class="text-color"><b>5 Countries with the most contracts to <br>re-do in 2018</b></p>
-					<br>
-					<p>USA: 20</p>
-					<p>Australia: 10</p>
-					<p>Canada: 10</p>
-					<p>Germany: 8</p>
-					<p>Japan: 6</p>
+			<div class="col-md-4">
+				<p class="text-color"><b>5 Countries with the most contracts to <br>re-do in 2018</b></p>
+          <canvas baseChart
+              [data]="chartData"
+              [labels]="chartLabels"
+              [chartType]="chartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
 			</div>
     </div>
   </div>
 </div>
-
