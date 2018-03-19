@@ -52,8 +52,11 @@ body {
   border:1px solid #eee
 }
 
-.navbar-collapse{
+.navbar-color{
   background-color: #bcd2ee;
+}
+.navbar-first{
+  background-color:#66afe9;
 }
 
 .page-footer{
@@ -67,3 +70,110 @@ body {
 .user-details{
   
 }
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+.toolbar-icon{
+  color: white;
+}
+.toolbar-spacer{
+  margin-left: 349px;
+}
+
+.navbar-collapse.collapse {
+    height: 40px !important;
+}
+.navbar {
+    
+    height: 40px;
+    min-height :40px;
+}
+.mat-toolbar-row {
+  height: 40px;
+}
+.navbar-nav>li>a {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+.navbar {
+  margin-bottom: 0px;
+}
+.navbar-default {
+    
+    border-color: transparent;
+}
+.navbar-header{
+  margin-top:-6px;
+}
+
+.img-rounded {
+  height: 33px;
+}
+.navbar-brand {
+  padding: 6px 15px;
+}
+.navbar-brand>img {
+  display: unset;
+}
+
+
+.fa-footer {
+  padding-left:0px;
+  padding-left:0px;
+  padding-left:0px;
+  padding-left:0px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  margin-top :-11px !important;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google-plus {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+
+
+
+
+
+
+
+

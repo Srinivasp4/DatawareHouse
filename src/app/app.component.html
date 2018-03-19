@@ -1,38 +1,73 @@
-<div style="width:80%; margin:0 auto;">
+<div class="container">
+    
+    <mat-toolbar>   
+        <mat-toolbar-row>
+          
+            <div class="container navbar navbar-default row navbar-first">
+                
+                <div class="navbar-header pull-left">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  
+                  <a class="navbar-brand" href="#">
+                    <img src="assets/images/home-icon.png" class="img-rounded" alt="toolbar">
+                    &nbsp;&nbsp;<span>Warehouses</span>
+                  </a>
+                </div>
+                
+                <div class="collapse navbar-collapse pull-right">
+                  <ul class="nav navbar-nav">
+                      <span class="example-spacer"></span>
+                      <span class="example-spacer"></span>
+                      <span class="example-spacer"></span>
+                    <li><a href="/notifications"> <i class="fa fa-bell-o toolbar-icon" style="font-size:24px"></i></a></li>
+                    <li><a routerLink="/settings"><i class="fa fa-gear fa-spin toolbar-icon" style="font-size:24px"></i></a></li>
+                    <li><a routerLink="/help"> <i style="font-size:24px" class="fa toolbar-icon">&#xf128;</i></a></li>
+                    <li><a routerLink="/user"> <i class="fa fa-user-circle" style="font-size:24px"></i> &nbsp;user</a></li>
+                    
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+            
+        </mat-toolbar-row>
+      
+        <mat-toolbar-row>
+            
+            <div class="row container navbar navbar-default navbar-color">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  
+                </div>
+                <div class="collapse navbar-collapse">
+                  <ul class="nav navbar-nav">
+                    <li><a href="/home"><i class="fa fa-home" style="font-size:24px"></i> &nbsp;Home</a></li>
+                    <li><a routerLink="/sites"><i class="glyphicon glyphicon-map-marker" style="font-size:24px"></i>&nbsp;Sites</a></li>
+                    <li><a routerLink="/calculator"><i class="fa fa-calculator" style="font-size:24px"></i> &nbsp;Calculation</a></li>
+                    <li class="dropdown">
+          
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                          <i class="fa fa-info-circle" style="font-size:24px"></i>&nbsp;Help <span class="caret"></span></a>
+                      <ul class="dropdown-menu">
+                        <li><a routerLink="/quiz"><i class="fa fa-question-circle" style="font-size:24px"></i> &nbsp;Quiz</a></li>
+                        <li><a routerLink="/faq"><i class="fa fa-question" style="font-size:24px"></i>FAQ</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div><!--/.nav-collapse -->
+              </div>
+              
+        </mat-toolbar-row>
+      </mat-toolbar>
 <!-- Wrap all page content here -->
 
 <div id="wrap">
-  <!-- Fixed navbar -->
-  
-  <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="#">WareHouse App</a>
-      </div>
-      <div class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
-          <li class="active"><a href="/home"><i class="fa fa-home" style="font-size:24px"></i> &nbsp;Home</a></li>
-          <li><a routerLink="/sites"><i class="glyphicon glyphicon-map-marker" style="font-size:24px"></i>&nbsp;Sites</a></li>
-          <li><a routerLink="/calculator"><i class="fa fa-calculator" style="font-size:24px"></i> &nbsp;Calculation</a></li>
-          <li class="dropdown">
-
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                <i class="fa fa-info-circle" style="font-size:24px"></i>&nbsp;Help <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/quiz"><i class="fa fa-question-circle" style="font-size:24px"></i> &nbsp;Quiz</a></li>
-              <li><a routerLink="/faq"><i class="fa fa-question" style="font-size:24px"></i>FAQ</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div><!--/.nav-collapse -->
-    </div>
-  </div>
-  
   <!-- Begin page content -->
   <div class="center-container">
     <div class="center-row">
@@ -53,38 +88,40 @@
     <div>
         <div class="container">
             <!--Grid row-->
-            <div class="row py-4 d-flex">
+            <div class="row py-4 d-flex col-12 col-md-12">
                  <!-- Copyright-->
-                <div class="col-6 col-md-6 footer-copyright text-center">
+                <div class="col-5 col-md-5 footer-copyright text-center">
                     © 2017 Mars,Incorporated and its Affiliates.All Rights Reserved.
                 </div>
-        <!--/.Copyright -->
-                
+                  <!--/.Copyright -->
                 <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-6 col-md-6 text-center text-md-right">
+                <div class="col-7 col-md-7 text-center text-md-right">
                     <!--Facebook-->
                     Follow Mars social media policy
-                    <a class="fb-ic ml-0">
-                        <i class="fa fa-facebook white-text mr-lg-4"> </i>
+                    <a class="btn-floating btn-sm btn-fb mx-1 waves-effect waves-light">
+                        <i class="fa fa-facebook white-text mr-lg-4 fa-footer"> </i>
                     </a>
                     <!--Twitter-->
                     <a class="tw-ic">
-                        <i class="fa fa-twitter white-text mr-lg-4"> </i>
-                    </a>
-                    <!--Google +-->
-                    <a class="gplus-ic">
-                        <i class="fa fa-google-plus white-text mr-lg-4"> </i>
+                        <i class="fa fa-twitter white-text mr-lg-4 fa-footer"> </i>
                     </a>
                     <!--Linkedin-->
                     <a class="li-ic">
-                        <i class="fa fa-linkedin white-text mr-lg-4"> </i>
+                        <i class="fa fa-linkedin white-text mr-lg-4 fa-footer"> </i>
                     </a>
+                    <!--Google +-->
+                    <a class="gplus-ic">
+                        <i class="fa fa-google-plus white-text mr-lg-4 fa-footer"> </i>
+                    </a>
+                    <!--Youtube-->
+                    <a class="yt-ic">
+                        <i class="fa fa-youtube white-text mr-lg-4 fa-footer"></i>
+                      </a>
                     <!--Instagram-->
                     <a class="ins-ic">
-                        <i class="fa fa-instagram white-text mr-lg-4"> </i>
+                        <i class="fa fa-instagram white-text mr-lg-4 fa-footer"> </i>
                     </a>
+                   
                 </div>
                 <!--Grid column-->
 
