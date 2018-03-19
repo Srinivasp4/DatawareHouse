@@ -83,10 +83,8 @@
     <!-- Position Column -->
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
-			
-			
 			<mat-cell *matCellDef="let element " class="text-color"> 
-				<a routerLink="/quiz">{{element.warehouse}}</a>
+				{{element.warehouse}}
 			 </mat-cell>
     </ng-container>
 

@@ -23,7 +23,8 @@ const appRoutes: Routes = [
   { path: 'notifications', component: NotificationsComponent },
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
-  { path: 'user', component: UserComponent }
+  { path: 'user', component: UserComponent },
+  { path: 'quiz', component: QuizComponent }
 ];
 
 @NgModule({
