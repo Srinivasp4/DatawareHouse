@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { MatFormFieldModule, MatInputModule,MatButtonModule, MatToolbarModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -42,6 +42,7 @@ import { UserComponent } from './user/user.component';
     HelpComponent,
     UserComponent
   ],
+  schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
