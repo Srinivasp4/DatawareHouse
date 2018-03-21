@@ -9,6 +9,7 @@ h1{
 }
 h2{
     font-weight:normal;
+    font-size : 17px;
 }
 
 
@@ -23,7 +24,7 @@ hr{
 }
 
 .option{
-    background-color:#cadaee;
+    /*background-color:#cadaee;*/
     font-size:15px;
     padding:10px;
     margin:3px;
@@ -96,9 +97,6 @@ div.review > div {
     width:20px;
     -webkit-appearance:checkbox;    
 }
-h2{
-    font-size : 17px;
-}
 
 @media only screen and (max-width: 480px) {
     h1,.h1{
@@ -117,4 +115,13 @@ h2{
 }
 .btn{
     font-size : 12px;
+}
+
+@media (min-width: 992px){
+.quiz-options {
+    float: unset;
+}
+}
+.question-answer{
+    margin-left: 320px;
 }
