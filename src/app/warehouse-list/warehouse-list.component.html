@@ -84,7 +84,7 @@
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
 			<mat-cell *matCellDef="let element " class="text-color"> 
-				{{element.warehouse}}
+					<a routerLink="/warehouseDetails">&nbsp;&nbsp;{{element.warehouse}}</a>
 			 </mat-cell>
     </ng-container>
 

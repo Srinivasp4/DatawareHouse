@@ -12,6 +12,8 @@ import { NotificationsComponent } from './notifications/notifications.component'
 import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { UserComponent } from './user/user.component';
+import { WarehouseDetailsComponent } from './warehouse-details/warehouse-details.component';
+
 
 
 const appRoutes: Routes = [
@@ -23,7 +25,8 @@ const appRoutes: Routes = [
   { path: 'settings', component: SettingsComponent },
   { path: 'help', component: HelpComponent },
   { path: 'user', component: UserComponent },
-  { path: 'quiz', component: QuizComponent }
+  { path: 'quiz', component: QuizComponent },
+  { path: 'warehouseDetails', component: WarehouseDetailsComponent }
 ];
 
 @NgModule({

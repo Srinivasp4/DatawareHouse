@@ -17,6 +17,7 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
+import { WarehouseDetailsComponent } from './warehouse-details/warehouse-details.component';
 import { MapComponent } from './map/map.component';
 import { AppRouterModule } from './app-router.module';
 import {RouterModule} from '@angular/router';
@@ -34,10 +35,13 @@ import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
     WarehouseListComponent,
+    WarehouseDetailsComponent,
     MapComponent,
     QuizComponent,
     FaqComponent,
