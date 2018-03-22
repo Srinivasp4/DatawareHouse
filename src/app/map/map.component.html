@@ -1,5 +1,6 @@
 
-  <div class ="container-fluid">
+
+    <div class ="container-fluid">
     <div class ="row">
       <div class ="col-md-4 col-sm-4 col-md-4 col-xs-4">
           <img src="assets/images/warehouse.jpg" class="img-rounded" alt="warehouse">
@@ -21,10 +22,14 @@
     </div>
   </div>
   <div style="width: 100%; margin-top: 50px">
-      <div class="warehouse-list text-color">
+    <div class="warehouse-list text-color">
       <h4><b>Map</b></h4>
       <hr>
-      </div>
-      <agm-map [latitude]="lat" [longitude]="lng"></agm-map>
+    </div>
+  </div>
+  <agm-map [latitude]="lat" [longitude]="lng">
+      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+    </agm-map>
 
+  
 

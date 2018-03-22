@@ -35,3 +35,8 @@
   .mat-row{
     border-bottom-color : #ccc;
   }
+
+  .global-details{
+    text-align: center;
+    font-size: 19px
+  }

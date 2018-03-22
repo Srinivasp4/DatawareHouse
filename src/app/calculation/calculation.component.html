@@ -55,7 +55,9 @@
     <!-- Warehouse Column -->
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
-      <mat-cell *matCellDef="let element " class="text-color"> {{element.warehouse}} </mat-cell>
+      <mat-cell *matCellDef="let element " class="text-color"> 
+					<a routerLink="/warehouseDetails">&nbsp;&nbsp;{{element.warehouse}}</a>
+			 </mat-cell>
     </ng-container>
 
     <!-- Region Column -->
@@ -85,16 +87,22 @@
 						Warehouses found:4
 				</div>
 </div>
+<div class="row text-color global-details">
+		<div class="col-12 col-md-12 col-lg-12 col-sm-12 col-xs-12"> 
+				<b>--Global details</b>
+		</div>
+</div>
+<br>
 
 </form>
 <div class ="container-fluid">
     <div class ="row">
-      <div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
+      <div class ="col-md-1 col-sm-1 col-md-1 col-xs-1">
 					<p class="text-color"><b>Overview</b></p>
 					<br>
 					<p>88 contract finish in 2018</p>
       </div>
-      <div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
+      <div class ="col-md-1 col-sm-1 col-md-1 col-xs-1">
           <p class="text-color"><b>Segments</b></p>
 					<br>
 					<p>Royal Canin: 30</p>
@@ -105,9 +113,15 @@
 					<p>Wrigley: 10</p>
 					<p>Cross Segment:</p>
 			</div>
-			<div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
-					<img src="assets/images/piechart.png" class="pie-img" alt="pieimg">
-			</div>
+			<div class="col-md-4">
+					<p class="text-color"><b>5 Countries with the most contracts to <br>re-do in 2018</b></p>
+						<canvas baseChart
+								[data]="chartData"
+								[labels]="chartLabels"
+								[chartType]="chartType"
+								(chartHover)="chartHovered($event)"
+								(chartClick)="chartClicked($event)"></canvas>
+				</div>
 			<div class ="col-md-2 col-sm-2 col-md-2 col-xs-2">
           <p class="text-color"><b>Region in 2018</b></p>
 					<br>
