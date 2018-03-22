@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule , CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { NgModule  } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { MatFormFieldModule, MatInputModule,MatButtonModule, MatToolbarModule } from '@angular/material';
 import {MatExpansionModule} from '@angular/material/expansion';
@@ -51,7 +51,7 @@ import {HttpModule} from '@angular/http';
     HelpComponent,
     UserComponent
   ],
-  schemas:  [ CUSTOM_ELEMENTS_SCHEMA ],
+  
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -63,9 +63,9 @@ import {HttpModule} from '@angular/http';
     MatInputModule,
     MatButtonModule, 
     MatToolbarModule ,
-    //AgmCoreModule.forRoot({
-      //apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
-    //}),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDcUhFqN6DcPywXTMcVzHgn6aAke_8tIJQ'
+    }),
     RouterModule,
     AppRouterModule,
     MatExpansionModule,
