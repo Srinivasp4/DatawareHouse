@@ -1,3 +1,10 @@
 .img-rounded {
     height:300px;
 }
+
+agm-map {
+    height: 500px !important;
+  }
+  .export{
+    text-align:right;
+  }

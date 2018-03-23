@@ -6,7 +6,7 @@
 <div class ="container-fluid">
   <div class ="row">
     
-    <div class ="col-md-8 col-sm-8 col-md-8 col-xs-8">
+    <div class ="col-md-6 col-sm-6 col-md-6 col-xs-6">
        <p class="text-color"><b>Location</b></p>
        <p>Region:APAC</p>
        <p>Region:Australia</p>
@@ -21,16 +21,23 @@
        <br>
        <p class="text-color"><b>Contract</b></p>
        <p>Expiration Date:July 2018(in 6 month)</p>
-       <p>Price:35 000 $ for 2 years</p>
+       <p>Price:35 000 $ for 2 years <button class="btn btn-primary" (click)="onSubmit()">Currency&nbsp;<i class="fa fa-sort-down"></i></button> </p>
        <p>Pallet Number max:35 000</p>
        <p>Unit of measure:plts avg</p>
        <p>Price Pallet ratio:1</p>
        <br>
        
      </div>
-     <div class ="col-md-4 col-sm-4 col-md-4 col-xs-4">
-        <img src="assets/images/warehouse.jpg" class="img-rounded" alt="warehouse">
+     <div class ="col-md-6 col-sm-6 col-md-6 col-xs-6">
+        <agm-map [latitude]="lat" [longitude]="lng">
+            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+          </agm-map>
       </div>
+      <div class="row">
+          <div class="col-12 col-md-12 export"> 
+              <button class="btn btn-primary" (click)="onSubmit()">Export&nbsp;<i class="fa fa-sort-down"></i></button> 
+          </div>
+    </div>
   </div>
 </div>
 

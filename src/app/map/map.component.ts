@@ -7,6 +7,6 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-  lat: number = 20.385044;
-  lng: number = 7.486671;
+  lat: number = 17.3850;
+  lng: number = 78.4867;
 }
