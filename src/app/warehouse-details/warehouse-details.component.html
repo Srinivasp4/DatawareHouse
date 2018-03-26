@@ -29,8 +29,13 @@
        
      </div>
      <div class ="col-md-6 col-sm-6 col-md-6 col-xs-6">
-        <agm-map [latitude]="lat" [longitude]="lng">
-            <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
+            <agm-marker [latitude]="lat" [longitude]="lng">
+                <agm-info-window>
+                    <strong>InfoWindow content</strong>
+                </agm-info-window>
+            </agm-marker>
+            
           </agm-map>
       </div>
       <div class="row">
