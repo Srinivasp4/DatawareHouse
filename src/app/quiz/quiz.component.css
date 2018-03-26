@@ -126,3 +126,7 @@ div.review > div {
 }
 }
 
+.primary-div,.secondary-div{
+    margin :10px;
+}
+
