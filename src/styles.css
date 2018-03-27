@@ -8,6 +8,7 @@
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
     margin: 300px;
+    margin-left:100px !important;
   }
   
   /* Safari */
@@ -37,4 +38,12 @@
   }
   html{
     font-family: "Amazon Ember",Arial,sans-serif;
+  }
+
+  @media (min-width: 768px){
+.container {
+    width: 1330px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
   }

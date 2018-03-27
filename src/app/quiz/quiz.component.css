@@ -121,10 +121,14 @@ div.review > div {
 .quiz-options {
     float: unset;
 }
-.question-answer{
-    margin-left: 320px;
+
 }
-}
+@media (min-width: 650px){
+    
+    .question-answer{
+        margin-left: 320px;
+    }
+    }
 
 .primary-div,.secondary-div{
     margin :10px;

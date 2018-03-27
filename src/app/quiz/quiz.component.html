@@ -15,7 +15,9 @@
 <div class="container-fluid">
   <div class="row">
 <div id="quiz">
-  
+  <div class="row">
+    <div class="col-3" style="display:none"> empty</div>
+    <div class="col-9">
   <div *ngIf="mode=='quiz' && quiz">
     <div *ngFor="let question of filteredQuestions;" class="question-answer">
       <h2>Question {{pager.index + 1}}:</h2>
@@ -32,6 +34,8 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 
   <div *ngIf="mode!='result' && mode!='review'" class="text-sm-center review-quiz">
     <div class="primary-div">

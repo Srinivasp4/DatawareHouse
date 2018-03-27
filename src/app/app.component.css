@@ -169,6 +169,7 @@ body {
   color: white;
 }
 
+/*Incase of absolute footer
 .footer {
   position: absolute;
   bottom: 0;
@@ -176,7 +177,7 @@ body {
   height: 60px;
   display: block;
   top: 890px;
-}
+}*/
 .footer-container{
   padding :16px;
   background-color: #f5f5f5;
@@ -197,6 +198,26 @@ body {
 }
 .dropdown-menu>li>a {
   background-color: #bcd2ee;
+}
+
+
+@media only screen and (max-width: 991px) {
+  .media-footer{
+    margin-top: 5px;
+}
+.footer-facebook{
+  margin-left:10px;
+}
+  
+}
+
+.fixed-bottom-footer{
+  margin-top: 25px;
+}
+
+
+.navbar-collapse.collapse{
+  background-color: #bcd2ee !important;
 }
 
 
