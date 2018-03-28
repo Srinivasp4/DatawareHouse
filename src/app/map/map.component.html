@@ -10,11 +10,11 @@
          <p>This Site has the ambition of being the master data tool about warehouse.</p>
          <p>It wants to be useful website to manage all the warehouse details,from their localization to the
            contract Mars has with them.</p>
-      <br>
+      
       <p> On this website you find a warehouse map,warehouse list and details,as comparison tool or calculation
         about pallet and contract.</p>
         <p>Some helping tool are available.,Like a tutorial,FAQ,and quizz.</p>
-      <br>
+      
       <p>We will happy to have your feedback,please use the smiley button at the top of this website to let
         us know what you think about this site and how we can impove it.
       </p>
@@ -23,15 +23,21 @@
     </div>
   </div>
   </div>
-  <div style="width: 100%; margin-top: 50px">
+  <div style="width: 100%;">
     <div class="warehouse-list text-color">
       <h4><b>Map</b></h4>
       <hr>
     </div>
   </div>
   <div class="map">
-  <agm-map [latitude]="lat" [longitude]="lng">
-      <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+  <agm-map [latitude]="lat1" [longitude]="lng1">
+      <agm-marker [latitude]="lat" [longitude]="lng" (markerClick)="redirect()"></agm-marker>
+      <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
+      <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
+      <agm-marker [latitude]="lat3" [longitude]="lng3"></agm-marker>
+      <agm-marker [latitude]="lat4" [longitude]="lng4"></agm-marker>
+      <agm-marker [latitude]="lat5" [longitude]="lng5"></agm-marker>
+      <agm-marker [latitude]="lat6" [longitude]="lng6"></agm-marker>
   </agm-map>
 
   </div>
