@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import {WarehouseSearch, Warehouse} from './warehouse';
 
+
 @Component({
   selector: 'app-warehouse-list',
   templateUrl: './warehouse-list.component.html',

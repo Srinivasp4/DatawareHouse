@@ -8,7 +8,7 @@
 	<form class="form-horizontal">
 		<div class="form-group">
 			<div class="col-sm-8">
-				<mat-form-field > <input matInput type="text"
+				<mat-form-field > <input matInput placeholder="Control 1" type="text"
 					class="text form-control primary-search" [(ngModel)]="warehouseSearch.searchStr"
 					name="searchStr" #searchStr="ngModel"
 					(keyup)="applyFilter($event.target.value)"> </mat-form-field>

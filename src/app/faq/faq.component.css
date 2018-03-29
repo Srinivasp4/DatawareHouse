@@ -2,16 +2,18 @@
     background-color: #66afe9;
   }
   .mat-expansion-panel-header.mat-expanded:focus, .mat-expansion-panel-header.mat-expanded:hover{
-    background-color: #66afe9;
+    background-color: #66afe9; 
 }
-.mat-expansion-panel-header.mat-expanded{
-    background-color: #66afe9;
-}
+
 .mat-expansion-panel:not([class*=mat-elevation-z]) {
     box-shadow: none;
     padding:5px;
 }
 .panel-description{
-    padding:30px;
+    padding-top:5px;
+    margin-bottom: -35px;
 }
 
+.mat-expansion-panel-body {
+    padding: 0 24px 0px !important;
+}

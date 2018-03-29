@@ -1,6 +1,8 @@
 agm-map {
-    height: 200px !important;
+    height: 300px !important;
   }
  
-
+.warehouse-list h4{
+  margin-top :0px !important;
+}
   

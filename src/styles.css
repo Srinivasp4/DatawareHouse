@@ -36,8 +36,8 @@
     border-width: 2px;
     border-color: #66afe9;
   }
-  html{
-    font-family: "Amazon Ember",Arial,sans-serif;
+  html,body,head{
+    font-family: serif,sans-serif;
   }
 
   @media (min-width: 768px){
