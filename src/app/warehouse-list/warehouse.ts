@@ -12,9 +12,8 @@ export class Warehouse {
 export class WarehouseSearch {
   constructor(
   	public searchStr: string
-  	,public region: string
-  	,public country: string
-  	,public segments: string
+  	,public secondaryFilterType: string
+  	,public secondaryFilterValue: string
   	,public logicalComp: string
     ,public filterType: string
     ,public filterValue: string

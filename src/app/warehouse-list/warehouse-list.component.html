@@ -57,18 +57,18 @@
 			</div>
 		
 			<div class="form-group col-5 col-md-5 col-xs-5 col-lg-5 col-sm-5 secondary-search">
-				<select id="company" class="form-control"
-					[(ngModel)]="warehouseSearch.filterType" name="region"
-					#region="ngModel">
+				<select id="company" class="form-control" (change)="onChangeOfSecondaryFilterType(value)"
+					[(ngModel)]="warehouseSearch.secondaryFilterType" name="secondaryFilterType"
+					#secondaryFilterType="ngModel">
 					<option value=""> Select country name</option>
-					<option *ngFor="let region of filterTypes" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let secondaryFilterType of secondaryFilterTypes" [ngValue]="secondaryFilterType.name">{{secondaryFilterType.name}}</option>
 				</select> 
 			</div>
 			<div class="form-group col-5 col-md-5 col-xs-5 col-lg-5 col-sm-5">
-				<select class="form-control" [(ngModel)]="warehouseSearch.filterValue"
-					name="country" #country="ngModel">
+				<select class="form-control" [(ngModel)]="warehouseSearch.secondaryFilterValue"
+					 name="secondaryFilterValue" #secondaryFilterValue="ngModel">
 					<option value=""> Select country value</option>
-					<option *ngFor="let country of filterValues" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let secondaryFilterValue of secondaryFilterValues" [ngValue]="secondaryFilterValue.name">{{secondaryFilterValue.name}}</option>
 				</select> 
 			</div>
 			</div>

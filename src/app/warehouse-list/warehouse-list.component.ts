@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Rx';
 import {Component, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import {WarehouseSearch, Warehouse} from './warehouse';
@@ -31,27 +32,40 @@ export class WarehouseListComponent {
   constructor(){
     this.selectedData = Observable.of(this.WAREHOUSE);
     this.warehousesCount = this.WAREHOUSE.length;
+    this.setFilterTypes();
+    this.setSecondaryFilterTypes();
   }
   
   onSelect(val){
-    console.log(val);
+    //console.log(val);
     //this.selectedData = this.WAREHOUSE.filter(x => x.region == val);
   }
   
   displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   dataSource = new MatTableDataSource(this.WAREHOUSE);
 
-  warehouseSearch = new WarehouseSearch('', '', '', '', '', '', '');
+  warehouseSearch = new WarehouseSearch('', '', '', '', '', '');
   
   //Regions dropdown
   regions: any[] =  [{name:'region'}];
 
   //filterType dropdown
-  filterTypes : any[] = [{name:'warehouse'}, {name:'region'}, {name:'country'}, {name:'segments'}];
+  filterTypes : any[] = [];//[{name:'warehouse'}, {name:'region'}, {name:'country'}, {name:'segments'}];
+  setFilterTypes() {
+    this.filterTypes = [];
+      this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+           if(!this.filterTypes.find(x => x.name == i)) {
+            this.filterTypes.push({name: i});
+           }
+        }
+      }
+    });
+  }    
   
   //filterValue dropdown
   filterValues: any[] = [];//[{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
-  
   onChangeOfFilterType() {
     this.filterValues = [];
     this.selectedData.subscribe(warehouseOjb =>{
@@ -67,58 +81,177 @@ export class WarehouseListComponent {
     });
   }
 
-  //countries dropdown
-  countries: any[] = [{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
+//filterType dropdown
+  secondaryFilterTypes : any[] = [];//[{name:'warehouse'}, {name:'region'}, {name:'country'}, {name:'segments'}];
+  setSecondaryFilterTypes() {
+    this.secondaryFilterTypes = [];
+      this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+           if(!this.secondaryFilterTypes.find(x => x.name == i)) {
+            this.secondaryFilterTypes.push({name: i});
+           }
+        }
+      }
+    });
+  }    
   
-  //logicalComparisions dropdown
-  logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
- 
+  //filterValue dropdown
+  secondaryFilterValues: any[] = [];//[{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
+  onChangeOfSecondaryFilterType() {
+    this.secondaryFilterValues = [];
+    this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.secondaryFilterType) {
+              if(!this.secondaryFilterValues.find(x => x.name == key[i])) {
+                this.secondaryFilterValues.push({name: key[i]});
+              }
+            }
+        }
+      }
+    });
+  }
 
+  //logicalComparisions dropdown
+  logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}]; 
 
   applyFilter(filterValue: string) {
-    //filterValue = filterValue.trim(); // Remove whitespace
-    //filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
     this.warehousesCount = this.dataSource.filteredData.length;
-
-    //console.log("Length "+ Object.keys(this.filterValue).length +"value" +this.WAREHOUSE.length);
-    console.log(this.warehousesCount);
-    //this.onSearch();
   }
 
 filterdList: Warehouse[] = [];
 
-  onFilter() {
+onFilter() {
     
-      console.log("searchText " + this.warehouseSearch.searchStr);
-      console.log("region " + this.warehouseSearch.region);
-      console.log("country " + this.warehouseSearch.country);
-      console.log("logicalComp " + this.warehouseSearch.logicalComp);
-      console.log("filterType " + this.warehouseSearch.filterType);
-      console.log("filterValue " + this.warehouseSearch.filterValue);
 this.filterdList = [];
+let primaryFilterdList: Warehouse[] = [];
+let secondaryFilterdList = [];
+let logicalOperator = this.warehouseSearch.logicalComp;
 this.selectedData.subscribe(warehouseOjb =>{
-  //warehouseOjb.forEach(key => {
-    //console.log("Key "+ key.no);
-    //console.log(this.warehouseSearch.region +"=="+ key.region);
     for (let key of warehouseOjb) {
         for(var i in key){
             if(i == this.warehouseSearch.filterType) {
               if(this.warehouseSearch.filterValue == key[i]) {
-                this.filterdList.push(key);
-                console.log(" Obj :" + key[i]);
+                primaryFilterdList.push(key);
               }
             }
         }
     }
   });
 
-  console.log("Length "+ this.filterdList.length);
+  this.selectedData.subscribe(warehouseOjb =>{
+    for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.secondaryFilterType) {
+              if(this.warehouseSearch.secondaryFilterValue == key[i]) {
+                if(!this.checkdupicate(primaryFilterdList, key)) {
+                  secondaryFilterdList.push(key);
+                }
+              }
+            }
+        }
+    }
+  });
+  
+  if(primaryFilterdList.length > 0 && secondaryFilterdList.length > 0) {
+    console.log("logicalOperator "+logicalOperator);
+    //console.log(logicalOperator === '|');
+    if(logicalOperator === '|') {
+      this.filterdList = primaryFilterdList.concat(secondaryFilterdList);
+    } else if (logicalOperator === '&'){
+        this.filterdList = this.applyLogicalOperatorAND(Observable.of(primaryFilterdList.concat(secondaryFilterdList));
+    } else {
+      this.filterdList = primaryFilterdList.concat(secondaryFilterdList);
+    }
+  } else if(primaryFilterdList.length > 0) {
+    this.filterdList = primaryFilterdList;
+  } else if(secondaryFilterdList.length > 0) {
+    this.filterdList = secondaryFilterdList;
+  }
+
+  //console.log("Length "+ this.filterdList.length);
   this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   this.dataSource = new MatTableDataSource([]);
   this.dataSource = new MatTableDataSource(this.filterdList);
 
+}
+
+checkdupicate(primaryFilterdList: Warehouse[], warehouse: Warehouse): Boolean {
+  let isDuplicate = false;
+  primaryFilterdList.forEach(warehouseObj => {
+    if(warehouseObj.no === warehouse.no
+          && warehouseObj.warehouse === warehouse.warehouse
+          && warehouseObj.region === warehouse.region
+          && warehouseObj.country === warehouse.country
+          && warehouseObj.segments === warehouse.segments) {
+            isDuplicate = true;
+    }
+  });
+  return isDuplicate;
+}
+
+applyLogicalOperatorAND(filterList: Observable<Warehouse[]>): Warehouse[] {
+let reqList: Warehouse[] = [];
+  filterList.subscribe(warehouseOjb =>{
+    for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.filterType) {
+              if(this.warehouseSearch.filterValue == key[i]) {
+                if(this.checkSecondaryFilter(key)) {
+                  reqList.push(key);
+                }
+              }
+            }
+        }
+    }
+  });
+return reqList;
+};
+
+checkSecondaryFilter(warehouseobj: Warehouse): Boolean {
+  for (let key in warehouseobj) {
+    console.log ('key: ' +  key + ',  value: ' + warehouseobj[key]);
+    if(key == this.warehouseSearch.secondaryFilterType) {
+        if(this.warehouseSearch.secondaryFilterValue == warehouseobj[key]) {
+          return true;
+        }
+      }
   }
+    return false;
+}
+
+applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehouse[]): Warehouse[] {
+  let reqList: Warehouse[] = [];
+  if(secondaryFilterdList.length > primaryFilterdList.length) {
+    secondaryFilterdList.forEach(secondaryFilters => {
+      primaryFilterdList.forEach(warehouseObj => {
+        if(warehouseObj.no === secondaryFilters.no
+          && warehouseObj.warehouse === secondaryFilters.warehouse
+          && warehouseObj.region === secondaryFilters.region
+          && warehouseObj.country === secondaryFilters.country
+          && warehouseObj.segments === secondaryFilters.segments) {
+            reqList.push(warehouseObj);
+      }
+      });
+    });
+  } else if(secondaryFilterdList.length < primaryFilterdList.length) {
+    secondaryFilterdList.forEach(secondaryFilters => {
+      primaryFilterdList.forEach(warehouseObj => {
+        if(secondaryFilters.no === warehouseObj.no
+          && secondaryFilters.warehouse === warehouseObj.warehouse
+          && secondaryFilters.region === warehouseObj.region
+          && secondaryFilters.country === warehouseObj.country
+          && secondaryFilters.segments === warehouseObj.segments) {
+            reqList.push(warehouseObj);
+      }
+      });
+    });
+  }
+  
+  return reqList;
+}
 
   @ViewChild(MatSort) sort: MatSort;
 
