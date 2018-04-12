@@ -25,18 +25,18 @@
 					</div>
 			<div class="form-group col-5 col-md-5 col-xs-5 col-lg-5 col-sm-5 secondary-search">
 				<select id="company" class="form-control"
-					[(ngModel)]="warehouseSearch.region" name="region"
+					[(ngModel)]="warehouseSearch.filterType" name="filterType"
 					#region="ngModel" >
 					<option value=""> Select region name</option>
-					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let filterType of filterTypes" [ngValue]="filterType.name">{{filterType.name}}</option>
 				</select>
 			</div>
 			
 			<div class="form-group col-5 col-md-5 col-xs-5 col-lg-5 col-sm-5">
-				<select class="form-control" [(ngModel)]="warehouseSearch.country"
-					name="country" #country="ngModel">
+				<select class="form-control" [(ngModel)]="warehouseSearch.filterValue"
+					name="filterValue" #country="ngModel">
 					<option value=""> Select region value</option>
-					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let filterValue of filterValues" [ngValue]="filterValue.name">{{filterValue.name}}</option>
 				</select>
 			</div>
 		</div>
@@ -61,14 +61,14 @@
 					[(ngModel)]="warehouseSearch.filterType" name="region"
 					#region="ngModel">
 					<option value=""> Select country name</option>
-					<option *ngFor="let region of filterType" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let region of filterTypes" [ngValue]="region.name">{{region.name}}</option>
 				</select> 
 			</div>
 			<div class="form-group col-5 col-md-5 col-xs-5 col-lg-5 col-sm-5">
 				<select class="form-control" [(ngModel)]="warehouseSearch.filterValue"
 					name="country" #country="ngModel">
 					<option value=""> Select country value</option>
-					<option *ngFor="let country of filterValue" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let country of filterValues" [ngValue]="country.name">{{country.name}}</option>
 				</select> 
 			</div>
 			</div>
@@ -76,7 +76,7 @@
 
 		<div class="row">
 				<div class="col-12 col-md-12 text-center text-md-right filter-text"> 
-						<button class="btn btn-primary" (click)="onSelect(value)">Add a filter</button> 
+						<button class="btn btn-primary" (click)="onFilter(value)">Add a filter</button> 
 				</div>
 		</div>
 <div class="example-container mat-elevation-z8">
@@ -115,15 +115,14 @@
 
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
 	<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
+	
+	
+			<div class="col-12 col-md-12 warehouses-count" *ngFor="let warehouse of WAREHOUSE ; let index = index;" > 	
+				Warehouses found: {{index}}
+			</div>
+
   </mat-table>
 </div>
-
-<div class="row">
-	<div class="col-12 col-md-12 warehouses-count"> 	
-	Warehouses found: {{this.warehousesCount}}
-</div>
-</div>
-
 <div class="row">
 	<div class="col-12 col-md-12 export"> 
 		<button class="btn btn-primary" (click)="onSubmit()">Export&nbsp;<i class="fa fa-sort-down"></i></button> 

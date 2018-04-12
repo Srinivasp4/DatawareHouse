@@ -4,6 +4,8 @@ import {WarehouseSearch, Warehouse} from './warehouse';
 
 import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/of';
 
 
 
@@ -17,23 +19,23 @@ export class WarehouseListComponent {
 
   WAREHOUSE: Warehouse[] = [
     {no: 1, warehouse: 'Bathurst Shed 3', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 2, warehouse: 'Bathurst Shed 7', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
+    {no: 2, warehouse: 'Bathurst Shed 7', region: 'APAC1', country: 'Australia', segments: 'Pet Nutrition'},
     {no: 3, warehouse: 'Bathurst Shed 1', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 8, warehouse: 'Bathurst Shed 5&6', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 5, warehouse: 'Gadsden Court', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'}
+    {no: 8, warehouse: 'Bathurst Shed 5&6', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'},
+    {no: 5, warehouse: 'Gadsden Court', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'}
   ]; 
 
   selected;
-  selectedData;
+  private selectedData: Observable<Warehouse[]>;
   warehousesCount;
   constructor(){
-    this.selectedData = this.WAREHOUSE;
-    this.warehousesCount = this.selectedData.length;
+    this.selectedData = Observable.of(this.WAREHOUSE);
+    //this.warehousesCount = this.selectedData.length;
   }
   
   onSelect(val){
     console.log(val);
-    this.selectedData = this.WAREHOUSE.filter(x => x.region == val);
+    //this.selectedData = this.WAREHOUSE.filter(x => x.region == val);
   }
   
   displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
@@ -45,14 +47,14 @@ export class WarehouseListComponent {
   regions: any[] =  [{name:'region'}];
 
   //filterType dropdown
-  filterType : any[] = [{name:'country'}];
+  filterTypes : any[] = [{name:'region'}];
   
+  //filterValue dropdown
+  filterValues: any[] = [{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
+
   //countries dropdown
   countries: any[] = [{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
-
-  //filterValue dropdown
-  filterValue: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
-
+  
   //logicalComparisions dropdown
   logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
  
@@ -63,12 +65,12 @@ export class WarehouseListComponent {
     this.dataSource.filter = filterValue;
     this.warehousesCount = this.dataSource.filteredData.length;
 
-    console.log("Length "+ Object.keys(this.filterValue).length +"value" +this.WAREHOUSE.length);
+    //console.log("Length "+ Object.keys(this.filterValue).length +"value" +this.WAREHOUSE.length);
     console.log(this.warehousesCount);
     //this.onSearch();
   }
 
-filterdList: Warehouse[];
+filterdList: Warehouse[] = [];
 
   onFilter() {
     
@@ -78,17 +80,24 @@ filterdList: Warehouse[];
       console.log("logicalComp " + this.warehouseSearch.logicalComp);
       console.log("filterType " + this.warehouseSearch.filterType);
       console.log("filterValue " + this.warehouseSearch.filterValue);
-
-  /* var dataList: Warehouse[] = WAREHOUSE;
-
-  console.log(dataList);
-  for (var i=0; i < dataList.length; i++){
-    console.log(dataList[i].country +"="+ this.warehouseSearch.country);
-    if(dataList[i].country = this.warehouseSearch.country ) {
-      this.filterdList = (dataList[i]);
+this.filterdList = [];
+this.selectedData.subscribe(warehouseOjb =>{
+  warehouseOjb.forEach(key => {
+    //console.log("Key "+ key.no);
+    //console.log(this.warehouseSearch.region +"=="+ key.region);
+    if(this.warehouseSearch.filterType == 'region' ) {
+      if(this.warehouseSearch.filterValue == key.region) {
+        this.filterdList.push(key);
+        console.log(" Obj :" + key.country);
+      }
     }
-  }
-  this.dataSource= this.filterdList;*/
+  })
+
+  console.log("Length "+ this.filterdList.length);
+  this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  this.dataSource = new MatTableDataSource(this.filterdList);
+  });
+
   }
 
   @ViewChild(MatSort) sort: MatSort;
@@ -102,40 +111,6 @@ filterdList: Warehouse[];
   }
 
   OnInit(){}
-
-  /* pipeFilter = '';
-  changeFilterData:any[] = [];
-  pipeFilterData:any[] =  [];
-
-  jsonData = [
-    {key: 1, value:'Data Item 1'},
-    {key: 2, value:'Data Item 2'},
-    {key: 3, value:'Data Item 3'},
-    {key: 4, value:'Data Item 4'},
-    {key: 5, value:'Data Item 5'},
-    {key: 6, value:'Data Item 6'}
-  ];
-
-  constructor() {
-    this.pipeFilterData = this.jsonData;
-  }
-  
-  onSelectChange(event){
-    let selectedValue = event.target.value;
-    
-    // You can implement filtering logic depending on the selectedValue
-    if(selectedValue == "region"){
-      this.changeFilterData = this.jsonData.slice(0, 2);
-    }else if(selectedValue == 2){
-      this.changeFilterData =  this.jsonData.slice(0, 3);
-    }else if(selectedValue == 3){
-      this.changeFilterData =  this.jsonData;
-    }else{
-      this.changeFilterData =  [];
-    }
-  } */
-
-
   
 }
 
