@@ -20,8 +20,8 @@ export class WarehouseListComponent {
   WAREHOUSE: Warehouse[] = [
     {no: 1, warehouse: 'Bathurst Shed 3', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
     {no: 2, warehouse: 'Bathurst Shed 7', region: 'APAC1', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 3, warehouse: 'Bathurst Shed 1', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 8, warehouse: 'Bathurst Shed 5&6', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'},
+    {no: 3, warehouse: 'Bathurst Shed 1', region: 'APAC', country: 'US', segments: 'Pet Nutrition'},
+    {no: 8, warehouse: 'Bathurst Shed 5&6', region: 'APAC2', country: 'Australia', segments: 'Pet Nutritions'},
     {no: 5, warehouse: 'Gadsden Court', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'}
   ]; 
 
@@ -47,10 +47,25 @@ export class WarehouseListComponent {
   regions: any[] =  [{name:'region'}];
 
   //filterType dropdown
-  filterTypes : any[] = [{name:'region'}];
+  filterTypes : any[] = [{name:'warehouse'}, {name:'region'}, {name:'country'}, {name:'segments'}];
   
   //filterValue dropdown
-  filterValues: any[] = [{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
+  filterValues: any[] = [];//[{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
+  
+  onChangeOfFilterType() {
+    this.filterValues = [];
+    this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.filterType) {
+              if(!this.filterValues.find(x => x.name == key[i])) {
+                this.filterValues.push({name: key[i]});
+              }
+            }
+        }
+      }
+    });
+  }
 
   //countries dropdown
   countries: any[] = [{name:'APAC'}, {name:'APAC1'}, {name:'APAC2'}];
@@ -58,6 +73,7 @@ export class WarehouseListComponent {
   //logicalComparisions dropdown
   logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
  
+
 
   applyFilter(filterValue: string) {
     //filterValue = filterValue.trim(); // Remove whitespace
@@ -82,21 +98,25 @@ filterdList: Warehouse[] = [];
       console.log("filterValue " + this.warehouseSearch.filterValue);
 this.filterdList = [];
 this.selectedData.subscribe(warehouseOjb =>{
-  warehouseOjb.forEach(key => {
+  //warehouseOjb.forEach(key => {
     //console.log("Key "+ key.no);
     //console.log(this.warehouseSearch.region +"=="+ key.region);
-    if(this.warehouseSearch.filterType == 'region' ) {
-      if(this.warehouseSearch.filterValue == key.region) {
-        this.filterdList.push(key);
-        console.log(" Obj :" + key.country);
-      }
+    for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.filterType) {
+              if(this.warehouseSearch.filterValue == key[i]) {
+                this.filterdList.push(key);
+                console.log(" Obj :" + key[i]);
+              }
+            }
+        }
     }
-  })
+  });
 
   console.log("Length "+ this.filterdList.length);
   this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  this.dataSource = new MatTableDataSource([]);
   this.dataSource = new MatTableDataSource(this.filterdList);
-  });
 
   }
 
