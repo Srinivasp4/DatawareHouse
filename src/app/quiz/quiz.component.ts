@@ -74,11 +74,11 @@ export class QuizComponent implements OnInit {
     }
   }
 
-  isAnswered(index) {
-    return this.quiz.questions[index].options.find(x => x.selected) ? 'Answered' : 'Not Answered';
+  isAnswered(question: Question, option: Option) {
+    return question.options.forEach((x) => { (x.selected = true)? 'true':'false' });
   };
   isAllAnswered(index){
-   return this.quiz.questions[index].options.every(x => x.selected === true) ? 'Answered' : 'Not Answered';
+   return this.quiz.questions[index].options.find(x => x.selected === true) ? 'Answered' : 'Not Answered';
    
   };
 

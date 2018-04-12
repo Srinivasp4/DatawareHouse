@@ -30,7 +30,7 @@ export class WarehouseListComponent {
   warehousesCount;
   constructor(){
     this.selectedData = Observable.of(this.WAREHOUSE);
-    //this.warehousesCount = this.selectedData.length;
+    this.warehousesCount = this.WAREHOUSE.length;
   }
   
   onSelect(val){

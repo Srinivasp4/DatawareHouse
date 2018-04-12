@@ -117,11 +117,14 @@
 	<mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row> 
 	
 	
-			<div class="col-12 col-md-12 warehouses-count" *ngFor="let warehouse of WAREHOUSE ; let index = index;" > 	
-				Warehouses found: {{index}}
-			</div>
+			
 
   </mat-table>
+</div>
+<div class="row">
+<div class="col-12 col-md-12 warehouses-count"> 	
+		Warehouses found: {{this.warehousesCount}}
+	</div>
 </div>
 <div class="row">
 	<div class="col-12 col-md-12 export"> 
