@@ -22,7 +22,7 @@ export class QuizComponent implements OnInit {
     'autoMove': false,  // if true, it will move to next question automatically when answered.
     'duration': 0,  // indicates the time in which quiz needs to be completed. 0 means unlimited.
     'pageSize': 1,
-    'requiredAll': false,  // indicates if you must answer all the questions before submitting.
+    'requiredAll': true,  // indicates if you must answer all the questions before submitting.
     'richText': false,
     'shuffleQuestions': false,
     'shuffleOptions': false,
@@ -76,6 +76,10 @@ export class QuizComponent implements OnInit {
 
   isAnswered(index) {
     return this.quiz.questions[index].options.find(x => x.selected) ? 'Answered' : 'Not Answered';
+  };
+  isAllAnswered(index){
+   return this.quiz.questions[index].options.every(x => x.selected === true) ? 'Answered' : 'Not Answered';
+   
   };
 
   isCorrect(question: Question) {

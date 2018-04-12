@@ -1,0 +1,17 @@
+OX_2cbb2700aaf0ce({
+  "ads":{
+    "medium":"w",
+    "record_tmpl":"https://delivery-asia-northeast-1.openx.net/{medium}/1.0/{rtype}?ph=89b2e804-9392-4144-aae0-0555f3960da4&ts={txn_state}",
+    "pixels":"https://jp-u.openx.net/w/1.0/pd?plm=10&ph=89b2e804-9392-4144-aae0-0555f3960da4",
+    "oxt": 20.419,
+    "adunits" : [
+      {
+        "auid":"538583837",
+        "chain_revenue":"",
+        "size":"300x250",
+        "chain":[
+        ]
+      }
+    ]
+  }
+});

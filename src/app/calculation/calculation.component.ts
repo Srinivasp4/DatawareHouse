@@ -2,6 +2,7 @@ import {Component, ViewChild, OnInit} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 
 import {CalculationSearch} from './calculation';
+import {BarRatingModule} from 'ngx-bar-rating';
 
 @Component({
   selector: 'app-calculation',

@@ -11,6 +11,7 @@
 				<select id="company" class="form-control"
 					[(ngModel)]="calculationSearch.region" name="region"
 					#region="ngModel">
+					<option value=""> Select region name</option>
 					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
 				</select>
 			</div>
@@ -18,6 +19,7 @@
 			<div class="form-group col-xs-6">
 				<select class="form-control" [(ngModel)]="calculationSearch.country"
 					name="country" #country="ngModel">
+					<option value=""> Select region value</option>
 					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
 				</select>
 			</div>
@@ -29,12 +31,14 @@
 				<select id="company" class="form-control"
 					[(ngModel)]="calculationSearch.region" name="region"
 					#region="ngModel">
+					<option value=""> Select country name</option>
 					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
 				</select> 
 			</div>
 			<div class="form-group col-xs-6">
 				<select class="form-control" [(ngModel)]="calculationSearch.country"
 					name="country" #country="ngModel">
+					<option value=""> Select country value</option>
 					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
 				</select> 
 			</div>
@@ -145,3 +149,20 @@
     </div>
   </div>
 </div>
+
+<div class="view">
+      <h2>Angular Bar Rating</h2>
+      
+      <bar-rating [(rate)]="starRating"></bar-rating>
+      
+      <bar-rating name="rating" [(rate)]="movieRating" [max]="4" [theme]="'movie'" [showText]="true"
+                      [titles]="['Bad', 'Mediocre' , 'Good', 'Awesome']"  disabled></bar-rating>
+                      
+      <bar-rating [(rate)]="vRating" [max]="10" [theme]="'vertical'" [showText]="true"></bar-rating>
+    
+      <bar-rating [rate]="faoRating" (rateChange)="onFaoRate($event)" [max]="10" [theme]="'fontawesome-o'"></bar-rating>
+      
+      <p *ngIf="!faoRated">Current rating: {{faoRating}}</p>
+      <p *ngIf="faoRated">Your rating: {{faoRating}} <i class="link fa fa-times-circle" (click)="faoReset(5.6)"></i></p>
+  
+    </div>

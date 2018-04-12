@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { QuizComponent } from './quiz/quiz.component'
+import { QuizComponent } from './quiz/quiz.component';
+
+
 
 @Component({
   selector: 'app-root',
@@ -8,5 +10,9 @@ import { QuizComponent } from './quiz/quiz.component'
 })
 export class AppComponent {
   title = 'app';
+  starRating = 3;
+  vRating = 1;
+  faoRating = 5.6;
+  movieRating = 2;
 }
 

@@ -33,6 +33,7 @@ import { UserComponent } from './user/user.component';
 
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
+import {BarRatingModule} from 'ngx-bar-rating';
 
 
 
@@ -72,7 +73,8 @@ import {HttpModule} from '@angular/http';
     MatExpansionModule,
     ChartsModule,
     HttpClientModule,
-    HttpModule
+    HttpModule,
+    BarRatingModule
 
   ],
   exports: [MatButtonModule, MatToolbarModule],

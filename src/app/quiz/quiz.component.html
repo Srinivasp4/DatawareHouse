@@ -17,7 +17,7 @@
 <div id="quiz">
   <div class="row">
     <div class="col-3" style="display:none"> empty</div>
-    <div class="col-9">
+    <div class="col-10">
   <div *ngIf="mode=='quiz' && quiz">
     <div *ngFor="let question of filteredQuestions;" class="question-answer">
       <h2>Question {{pager.index + 1}}:</h2>
@@ -41,7 +41,9 @@
     <div class="primary-div">
       <button class="btn btn-default" (click)="mode = 'quiz'">Quiz</button>
       <button class="btn btn-default" (click)="mode = 'review'">Review</button>
-      <button class="btn btn-default" (click)="onSubmit();">Submit Quiz</button>
+      <div *ngFor="let question of quiz.questions; let index = index;">
+          <button class="btn btn-default" *ngIf="isAllAnswered(index) == 'Answered'" (click)="onSubmit();">Submit Quiz</button>
+        </div>
     </div>
       <div class="secondary-div">
           <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(0);">First</button>
@@ -50,6 +52,7 @@
           <button class="btn btn-default" *ngIf="config.allowBack" (click)="goTo(pager.count - 1);">Last</button>
           <!--<pagination *ngIf="config.showPager" direction-links="false" total-items="totalItems" items-per-page="itemsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>-->
       </div>
+
   </div>
   <div class="row review" *ngIf="mode=='review'">
       <div class="col-sm-4" *ngFor="let question of quiz.questions; let index = index;">
