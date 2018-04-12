@@ -25,9 +25,10 @@ export class WarehouseListComponent {
 
   selected;
   selectedData;
-  
+  warehousesCount;
   constructor(){
     this.selectedData = this.WAREHOUSE;
+    this.warehousesCount = this.selectedData.length;
   }
   
   onSelect(val){
@@ -60,8 +61,10 @@ export class WarehouseListComponent {
     //filterValue = filterValue.trim(); // Remove whitespace
     //filterValue = filterValue.toLowerCase(); // MatTableDataSource defaults to lowercase matches
     this.dataSource.filter = filterValue;
+    this.warehousesCount = this.dataSource.filteredData.length;
 
     console.log("Length "+ Object.keys(this.filterValue).length +"value" +this.WAREHOUSE.length);
+    console.log(this.warehousesCount);
     //this.onSearch();
   }
 
