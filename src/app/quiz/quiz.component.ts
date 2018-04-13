@@ -100,10 +100,19 @@ export class QuizComponent implements OnInit {
   isCorrect(question: Question) {
     return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
   };
-
+  totalScore: number = 0;
   onSubmit() {
     let answers = [];
-    this.quiz.questions.forEach(x => answers.push({ 'QuizId': this.quiz.id, 'QuestionId': x.id, 'Answered': x.answered }));
+    //this.quiz.questions.forEach(x => answers.push({ 'QuizId': this.quiz.id, 'QuestionId': x.id, 'Answered': x.answered }));
+    this.totalScore = 0;
+    this.quiz.questions.forEach(question => {
+      question.options.forEach(option => {
+        if(option.selected && option.isAnswer) {
+          option.isCorrectAnswered = true;
+          console.log(this.totalScore = this.totalScore + 1);
+        }
+      });
+    });
 
     // Post your data to the server here. answers contains the questionId and the users' answer.
     console.log(this.quiz.questions);
