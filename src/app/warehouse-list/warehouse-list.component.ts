@@ -18,11 +18,11 @@ export class WarehouseListComponent {
 
 
   WAREHOUSE: Warehouse[] = [
-    {no: 1, warehouse: 'Bathurst Shed 3', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 2, warehouse: 'Bathurst Shed 7', region: 'APAC1', country: 'Australia', segments: 'Pet Nutrition'},
-    {no: 3, warehouse: 'Bathurst Shed 1', region: 'APAC', country: 'US', segments: 'Pet Nutrition'},
-    {no: 8, warehouse: 'Bathurst Shed 5&6', region: 'APAC2', country: 'Australia', segments: 'Pet Nutritions'},
-    {no: 5, warehouse: 'Gadsden Court', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'}
+    {warehouse: 'Bathurst Shed 3', region: 'APAC', country: 'Australia', segments: 'Pet Nutrition'},
+    {warehouse: 'Bathurst Shed 7', region: 'APAC1', country: 'Australia', segments: 'Pet Nutrition'},
+    {warehouse: 'Bathurst Shed 1', region: 'APAC', country: 'US', segments: 'Pet Nutrition'},
+    {warehouse: 'Bathurst Shed 5&6', region: 'APAC2', country: 'Australia', segments: 'Pet Nutritions'},
+    {warehouse: 'Gadsden Court', region: 'APAC2', country: 'Australia', segments: 'Pet Nutrition'}
   ]; 
 
   selected;
@@ -40,10 +40,10 @@ export class WarehouseListComponent {
     //this.selectedData = this.WAREHOUSE.filter(x => x.region == val);
   }
   
-  displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  displayedColumns = ['warehouse', 'region', 'country', 'segments'];
   dataSource = new MatTableDataSource(this.WAREHOUSE);
 
-  warehouseSearch = new WarehouseSearch('', '', '', '', '', '');
+  warehouseSearch = new WarehouseSearch( '', '', '', '', '');
   
   //Regions dropdown
   regions: any[] =  [{name:'region'}];
@@ -171,7 +171,7 @@ this.selectedData.subscribe(warehouseOjb =>{
   }
 
   //console.log("Length "+ this.filterdList.length);
-  this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  this.displayedColumns = ['warehouse', 'region', 'country', 'segments'];
   this.dataSource = new MatTableDataSource([]);
   this.dataSource = new MatTableDataSource(this.filterdList);
   this.warehousesCount = this.filterdList.length;
@@ -180,8 +180,7 @@ this.selectedData.subscribe(warehouseOjb =>{
 checkdupicate(primaryFilterdList: Warehouse[], warehouse: Warehouse): Boolean {
   let isDuplicate = false;
   primaryFilterdList.forEach(warehouseObj => {
-    if(warehouseObj.no === warehouse.no
-          && warehouseObj.warehouse === warehouse.warehouse
+    if(warehouseObj.warehouse === warehouse.warehouse
           && warehouseObj.region === warehouse.region
           && warehouseObj.country === warehouse.country
           && warehouseObj.segments === warehouse.segments) {
@@ -227,8 +226,7 @@ applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehous
   if(secondaryFilterdList.length > primaryFilterdList.length) {
     secondaryFilterdList.forEach(secondaryFilters => {
       primaryFilterdList.forEach(warehouseObj => {
-        if(warehouseObj.no === secondaryFilters.no
-          && warehouseObj.warehouse === secondaryFilters.warehouse
+        if(warehouseObj.warehouse === secondaryFilters.warehouse
           && warehouseObj.region === secondaryFilters.region
           && warehouseObj.country === secondaryFilters.country
           && warehouseObj.segments === secondaryFilters.segments) {
@@ -239,8 +237,7 @@ applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehous
   } else if(secondaryFilterdList.length < primaryFilterdList.length) {
     secondaryFilterdList.forEach(secondaryFilters => {
       primaryFilterdList.forEach(warehouseObj => {
-        if(secondaryFilters.no === warehouseObj.no
-          && secondaryFilters.warehouse === warehouseObj.warehouse
+        if(secondaryFilters.warehouse === warehouseObj.warehouse
           && secondaryFilters.region === warehouseObj.region
           && secondaryFilters.country === warehouseObj.country
           && secondaryFilters.segments === warehouseObj.segments) {
@@ -269,7 +266,7 @@ applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehous
 
 export interface Warehouse {
   
-  no: number;
+  
   warehouse: string;
   region: string;
   country: string;

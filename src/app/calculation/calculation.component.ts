@@ -13,10 +13,10 @@ import {BarRatingModule} from 'ngx-bar-rating';
 export class CalculationComponent implements OnInit {
 
 	WAREHOUSECAL: Warehousecal[] = [
-	{no: 1, warehouse: 'RC ODESSA', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-	{no: 2, warehouse: 'RC KIEV', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-	{no: 3, warehouse: 'RC Radem', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-	{no: 4, warehouse: 'Kiev Warehouse', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'}	
+	{warehouse: 'RC ODESSA', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{warehouse: 'RC KIEV', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{warehouse: 'RC Radem', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{warehouse: 'Kiev Warehouse', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'}	
 	];
 
 	warehouseSearch = new WarehouseSearch('', '', '', '');
@@ -42,7 +42,7 @@ export class CalculationComponent implements OnInit {
 		this.setSecondaryFilterTypes();
 		this.calculationWarehouseCnt = this.WAREHOUSECAL.length;
 	}
-	displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+	displayedColumns = ['warehouse', 'region', 'country', 'segments'];
 	dataSourceCal = new MatTableDataSource(this.WAREHOUSECAL);
 
 	private selectedData: Observable<Warehousecal[]>;
@@ -151,7 +151,7 @@ filterdList: Warehousecal[] = [];
 	}
 });
 
-  this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  this.displayedColumns = ['warehouse', 'region', 'country', 'segments'];
   this.dataSourceCal = new MatTableDataSource([]);
   this.dataSourceCal = new MatTableDataSource(this.filterdList);
 	this.calculationWarehouseCnt = this.filterdList.length;
@@ -199,7 +199,6 @@ filterdList: Warehousecal[] = [];
 
 export interface Warehousecal {
   
-  no: number;
   warehouse: string;
   region: string;
   country: string;

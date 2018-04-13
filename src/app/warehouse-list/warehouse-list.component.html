@@ -83,10 +83,6 @@
   <mat-table #table [dataSource]="dataSource" matSort>
 		
 
-	<ng-container matColumnDef="no">
-      <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color" style="display:none"> No. </mat-header-cell>
-      <mat-cell *matCellDef="let element" style="display:none"> {{element.no}} </mat-cell>
-    </ng-container>
     <!-- Warehouse Column -->
     <ng-container matColumnDef="warehouse">
       <mat-header-cell *matHeaderCellDef mat-sort-header class="text-color"> warehouse </mat-header-cell>
