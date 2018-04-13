@@ -57,11 +57,13 @@ export class QuizComponent implements OnInit {
       this.quiz.questions.slice(this.pager.index, this.pager.index + this.pager.size) : [];
   }
 
+  displaySubmitBtn: Boolean= false;
   onSelect(question: Question, option: Option) {
     if (question.questionTypeId === 1) {
       question.options.forEach((x) => { if (x.id !== option.id) x.selected = false; });
     }
-
+    this.displaySubmitBtn = this.isAllAnswered();
+    //console.log(JSON.stringify(question));
     if (this.config.autoMove) {
       this.goTo(this.pager.index + 1);
     }
@@ -77,8 +79,21 @@ export class QuizComponent implements OnInit {
   isAnswered(question: Question, option: Option) {
     return question.options.forEach((x) => { (x.selected = true)? 'true':'false' });
   };
-  isAllAnswered(index){
-   return this.quiz.questions[index].options.find(x => x.selected === true) ? 'Answered' : 'Not Answered';
+  
+  isAllAnswered(): Boolean{
+    let questionsAnswered = [];
+    this.quiz.questions.forEach(question => {
+      question.options.forEach(option => {
+        if(option.selected === true) {
+          questionsAnswered.push(question);
+        }
+      });
+    });
+
+    //console.log(questionsAnswered.length +"==="+ this.quiz.questions.length);
+    if(questionsAnswered.length === this.quiz.questions.length) {
+      return true;
+    }
    
   };
 
