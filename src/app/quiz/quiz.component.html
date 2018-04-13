@@ -96,8 +96,8 @@
 
 <div class="result" *ngIf="mode=='result'">
 Total Correct answers : {{this.totalScore}}
-<div *ngFor="let question of quiz.questions;" class="question-answer">
-      <h2><span [innerHTML]="question.name"></span></h2>
+<div *ngFor="let question of quiz.questions; let index = index;" class="question-answer">
+      <h2>{{index+1}} : <span [innerHTML]="question.name"></span> </h2>
       <div class="row options">
         <div class="col-md-12 quiz-options" *ngFor="let option of question.options;">
           <div class="option">
@@ -105,7 +105,7 @@ Total Correct answers : {{this.totalScore}}
                 <label *ngIf="option.isCorrectAnswered" class=""><i class="fa fa-check" aria-hidden="true"></i></label>
                 <label *ngIf="option.isAnswer && !(option.isCorrectAnswered)" class=""><i class="fa fa-check" aria-hidden="true"></i></label>
                 <label *ngIf="!(option.isAnswer)" class=""><i class="fa fa-remove" style="color:red"></i></label>
-                
+
                 <input id="{{option.id}}" type="checkbox" [(ngModel)]="option.selected"/>
                 {{option.name}}
             </label>
