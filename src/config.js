@@ -38,6 +38,7 @@ System.config({
     'typescript': 'npm:typescript@2.2.1/lib/typescript.js',
     
     'angular-maps': 'npm:angular-maps',
+    'ngx-bar-rating': 'ngx-bar-rating.umd.js'
     //'angular-maps': 'https://npmcdn.com/angular-maps@0.3.21'
   },
   //packages defines our app package

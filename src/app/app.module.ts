@@ -34,10 +34,7 @@ import { UserComponent } from './user/user.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {BarRatingModule} from 'ngx-bar-rating';
-
-
-
-
+import { RatingbarComponent } from './ratingbar/ratingbar.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +48,8 @@ import {BarRatingModule} from 'ngx-bar-rating';
     NotificationsComponent,
     SettingsComponent,
     HelpComponent,
-    UserComponent
+    UserComponent,
+    RatingbarComponent
   ],
   
   imports: [

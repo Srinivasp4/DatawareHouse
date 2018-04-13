@@ -174,7 +174,7 @@ this.selectedData.subscribe(warehouseOjb =>{
   this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   this.dataSource = new MatTableDataSource([]);
   this.dataSource = new MatTableDataSource(this.filterdList);
-
+  this.warehousesCount = this.filterdList.length;
 }
 
 checkdupicate(primaryFilterdList: Warehouse[], warehouse: Warehouse): Boolean {
@@ -199,6 +199,7 @@ let reqList: Warehouse[] = [];
             if(i == this.warehouseSearch.filterType) {
               if(this.warehouseSearch.filterValue == key[i]) {
                 if(this.checkSecondaryFilter(key)) {
+                  console.log("Matched "+ key[i]+" "+ this.warehouseSearch.filterValue == key[i]);
                   reqList.push(key);
                 }
               }

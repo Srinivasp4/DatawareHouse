@@ -9,10 +9,6 @@ import { QuizComponent } from './quiz/quiz.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
-  starRating = 3;
-  vRating = 1;
-  faoRating = 5.6;
-  movieRating = 2;
+  
 }
 

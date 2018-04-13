@@ -1,3 +1,4 @@
+import { RatingbarComponent } from './ratingbar/ratingbar.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes, RouterLinkActive }  from '@angular/router';
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'help', component: HelpComponent },
   { path: 'user', component: UserComponent },
   { path: 'quiz', component: QuizComponent },
-  { path: 'warehouseDetails', component: WarehouseDetailsComponent }
+  { path: 'warehouseDetails', component: WarehouseDetailsComponent },
+  { path: 'rating', component: RatingbarComponent}
 ];
 
 @NgModule({

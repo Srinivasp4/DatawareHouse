@@ -35,11 +35,12 @@ export class CalculationComponent implements OnInit {
 	//console.log(e);
 	}
 	//chart changes ending 
-
+  calculationWarehouseCnt;
 	constructor() {
 		this.selectedData = Observable.of(this.WAREHOUSECAL);
 		this.setPrimaryFilterTypes();
 		this.setSecondaryFilterTypes();
+		this.calculationWarehouseCnt = this.WAREHOUSECAL.length;
 	}
 	displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
 	dataSourceCal = new MatTableDataSource(this.WAREHOUSECAL);
@@ -153,6 +154,7 @@ filterdList: Warehousecal[] = [];
   this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
   this.dataSourceCal = new MatTableDataSource([]);
   this.dataSourceCal = new MatTableDataSource(this.filterdList);
+	this.calculationWarehouseCnt = this.filterdList.length;
   }
 
   checkSecondaryFilter(warehouseobj: Warehousecal): Boolean {

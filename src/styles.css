@@ -94,3 +94,27 @@ bar-rating{
 .nav>li{
   font-size: 15px;
 }
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,600');
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.view{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+bar-rating{
+  margin: 0.5em;
+}
+
+.link {
+  margin-left: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #50e3c2;
+}
