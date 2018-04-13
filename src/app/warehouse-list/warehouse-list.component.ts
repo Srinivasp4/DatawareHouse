@@ -1,4 +1,3 @@
-import { Observable } from 'rxjs/Rx';
 import {Component, ViewChild} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 import {WarehouseSearch, Warehouse} from './warehouse';
@@ -161,7 +160,7 @@ this.selectedData.subscribe(warehouseOjb =>{
     if(logicalOperator === '|') {
       this.filterdList = primaryFilterdList.concat(secondaryFilterdList);
     } else if (logicalOperator === '&'){
-        this.filterdList = this.applyLogicalOperatorAND(Observable.of(primaryFilterdList.concat(secondaryFilterdList));
+        this.filterdList = this.applyLogicalOperatorAND(Observable.of(primaryFilterdList.concat(secondaryFilterdList)));
     } else {
       this.filterdList = primaryFilterdList.concat(secondaryFilterdList);
     }
@@ -275,8 +274,3 @@ export interface Warehouse {
   country: string;
   segments: string;
 }
-
-
-
-
-

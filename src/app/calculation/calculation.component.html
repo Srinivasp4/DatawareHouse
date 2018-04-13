@@ -8,19 +8,19 @@
 
 		<div class="row col-xs-12">
 			<div class="form-group col-xs-6 calculator-secondarysearch">
-				<select id="company" class="form-control"
-					[(ngModel)]="calculationSearch.region" name="region"
-					#region="ngModel">
+				<select id="company" class="form-control" (change)="onClickPrimaryFilterValue(value)"
+					[(ngModel)]="warehouseSearch.primaryFilterType" name="primaryFilterType"
+					#primaryFilterType="ngModel">
 					<option value=""> Select region name</option>
-					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let primaryFilterType of primaryFilterTypes" [ngValue]="primaryFilterType.name">{{primaryFilterType.name}}</option>
 				</select>
 			</div>
 			
 			<div class="form-group col-xs-6">
-				<select class="form-control" [(ngModel)]="calculationSearch.country"
-					name="country" #country="ngModel">
+				<select class="form-control" [(ngModel)]="warehouseSearch.primaryFilterValue"
+					name="primaryFilterValue" #primaryFilterValue="ngModel">
 					<option value=""> Select region value</option>
-					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let primaryFilterValue of primaryFilterValues" [ngValue]="primaryFilterValue.name">{{primaryFilterValue.name}}</option>
 				</select>
 			</div>
 		</div>
@@ -28,25 +28,25 @@
 		<div class="row col-xs-12">
 		
 			<div class="form-group col-xs-6 calculator-secondarysearch">
-				<select id="company" class="form-control"
-					[(ngModel)]="calculationSearch.region" name="region"
-					#region="ngModel">
+				<select id="company" class="form-control" (change)="onChangeSecondaryFilterType()"
+					[(ngModel)]="warehouseSearch.secondaryFilterType" name="secondaryFilterType"
+					#secondaryFilterType="ngModel">
 					<option value=""> Select country name</option>
-					<option *ngFor="let region of regions" [ngValue]="region.name">{{region.name}}</option>
+					<option *ngFor="let secondaryFilterType of secondaryFilterTypes" [ngValue]="secondaryFilterType.name">{{secondaryFilterType.name}}</option>
 				</select> 
 			</div>
 			<div class="form-group col-xs-6">
-				<select class="form-control" [(ngModel)]="calculationSearch.country"
-					name="country" #country="ngModel">
+				<select class="form-control" [(ngModel)]="warehouseSearch.secondaryFilterValue"
+					name="secondaryFilterValue" #secondaryFilterValue="ngModel">
 					<option value=""> Select country value</option>
-					<option *ngFor="let country of countries" [ngValue]="country.name">{{country.name}}</option>
+					<option *ngFor="let secondaryFilterValue of secondaryFilterValues" [ngValue]="secondaryFilterValue.name">{{secondaryFilterValue.name}}</option>
 				</select> 
 			</div>
 		</div>
 
 		<div class="row">
 				<div class="col-12 col-md-12 text-center text-md-right filter-text check-button"> 
-						<button class="btn btn-primary" (click)="onSubmit()">CHECK</button> 
+						<button class="btn btn-primary" (click)="onFilter()">CHECK</button> 
 				</div>
 		</div>
 <div class="example-container mat-elevation-z8">

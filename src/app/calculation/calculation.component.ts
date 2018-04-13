@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs/Observable';
 import {Component, ViewChild, OnInit} from '@angular/core';
 import {MatTableDataSource, MatSort} from '@angular/material';
 
@@ -11,7 +12,14 @@ import {BarRatingModule} from 'ngx-bar-rating';
 })
 export class CalculationComponent implements OnInit {
 
+	WAREHOUSECAL: Warehousecal[] = [
+	{no: 1, warehouse: 'RC ODESSA', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{no: 2, warehouse: 'RC KIEV', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{no: 3, warehouse: 'RC Radem', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
+	{no: 4, warehouse: 'Kiev Warehouse', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'}	
+	];
 
+	warehouseSearch = new WarehouseSearch('', '', '', '');
 	// Chart starting : refer "https://valor-software.com/ng2-charts/#pieChart"
 	public chartLabels :string[] = ['USA', 'Australia', 'Canada', 'Germany', 'Japan'];
 	public chartData :number[] = [20, 10, 10, 8, 6];
@@ -28,26 +36,142 @@ export class CalculationComponent implements OnInit {
 	}
 	//chart changes ending 
 
+	constructor() {
+		this.selectedData = Observable.of(this.WAREHOUSECAL);
+		this.setPrimaryFilterTypes();
+		this.setSecondaryFilterTypes();
+	}
 	displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
-	dataSourceCal = new MatTableDataSource(WAREHOUSECAL);
+	dataSourceCal = new MatTableDataSource(this.WAREHOUSECAL);
+
+	private selectedData: Observable<Warehousecal[]>;
 
 	calculationSearch = new CalculationSearch('', '', '', '', '');
 
 	regions: any[] =  [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
 
   //filterType dropdown
-  filterType : any[] = [{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
-  
+  primaryFilterTypes : any[] = [];//[{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
+  setPrimaryFilterTypes() {
+    this.primaryFilterTypes = [];
+      this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+           if(!this.primaryFilterTypes.find(x => x.name == i)) {
+            this.primaryFilterTypes.push({name: i});
+           }
+        }
+      }
+    });
+  }   
+
+  //filterValue dropdown
+  primaryFilterValues: any[] = [];//[{name:'Australia'}, {name:'India'}, {name:'US'}];
+  onClickPrimaryFilterValue() {
+	  console.log("Entering into onClickPrimaryFilterValue");
+	this.primaryFilterValues = [];
+	this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+			console.log(i +"=="+ this.warehouseSearch.primaryFilterType);
+            if(i == this.warehouseSearch.primaryFilterType) {
+              if(!this.primaryFilterValues.find(x => x.name == key[i])) {
+                this.primaryFilterValues.push({name: key[i]});
+              }
+            }
+        }
+      }
+    });
+  }
+
+  //filterType dropdown
+  secondaryFilterTypes : any[] = [];//[{name:'warehouse'}, {name:'region'}, {name:'country'},{name:'segment'}];
+  setSecondaryFilterTypes() {
+    this.secondaryFilterTypes = [];
+      this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+           if(!this.secondaryFilterTypes.find(x => x.name == i)) {
+            this.secondaryFilterTypes.push({name: i});
+           }
+        }
+      }
+    });
+  }
+
+  //filterValue dropdown
+  secondaryFilterValues: any[] = [];//[{name:'Australia'}, {name:'India'}, {name:'US'}];
+  onChangeSecondaryFilterType() {
+    this.secondaryFilterValues = [];
+    this.selectedData.subscribe(warehouseOjb =>{
+      for (let key of warehouseOjb) {
+        for(var i in key){
+            if(i == this.warehouseSearch.secondaryFilterType) {
+              if(!this.secondaryFilterValues.find(x => x.name == key[i])) {
+                this.secondaryFilterValues.push({name: key[i]});
+              }
+            }
+        }
+      }
+    });
+  }
+
+filterdList: Warehousecal[] = [];
+  onFilter() {
+	this.filterdList = [];
+	let primaryFilterdList: Warehousecal[] = [];
+	let secondaryFilterdList = [];
+	
+	this.selectedData.subscribe(warehouseOjb =>{
+		for (let key of warehouseOjb) {
+			for(var i in key){
+			if(this.warehouseSearch.primaryFilterType !="" && this.warehouseSearch.primaryFilterValue != "") {
+				if(i == this.warehouseSearch.primaryFilterType) {
+					if(this.warehouseSearch.primaryFilterValue == key[i]) {
+						if(this.warehouseSearch.secondaryFilterType !="" && this.warehouseSearch.secondaryFilterValue != "") {
+						if(this.checkSecondaryFilter(key)) {
+							this.filterdList.push(key);
+						}
+						}else{
+							this.filterdList.push(key);
+						}
+					}
+				}
+			}else if(this.warehouseSearch.secondaryFilterType !="" && this.warehouseSearch.secondaryFilterValue != "") {
+				if(i == this.warehouseSearch.secondaryFilterType) {
+					if(this.warehouseSearch.secondaryFilterValue == key[i]) {
+						this.filterdList.push(key);
+					}
+				}
+			}else{
+				this.filterdList = this.WAREHOUSECAL;
+			}
+		}
+	}
+});
+
+  this.displayedColumns = ['no', 'warehouse', 'region', 'country', 'segments'];
+  this.dataSourceCal = new MatTableDataSource([]);
+  this.dataSourceCal = new MatTableDataSource(this.filterdList);
+  }
+
+  checkSecondaryFilter(warehouseobj: Warehousecal): Boolean {
+	for (let key in warehouseobj) {
+		console.log ('key: ' +  key + ',  value: ' + warehouseobj[key]);
+		if(key == this.warehouseSearch.secondaryFilterType) {
+			if(this.warehouseSearch.secondaryFilterValue == warehouseobj[key]) {
+				return true;
+			}
+		}
+	}
+		return false;
+ }
+
   //countries dropdown
   countries: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
 
-  //filterValue dropdown
-  filterValue: any[] = [{name:'Australia'}, {name:'India'}, {name:'US'}];
-
   //logicalComparisions dropdown
 	logicalComparisions: any[] = [{symbol:'&', name: 'AND'}, {symbol:'|', name:'OR'}];
-	
-	
 
 	applyFilter(filterValue: string) {
 		//filterValue = filterValue.trim(); // Remove whitespace
@@ -79,12 +203,13 @@ export interface Warehousecal {
   country: string;
   segments: string;
 }
+ 
 
-
-const WAREHOUSECAL: Warehousecal[] = [
-  {no: 1, warehouse: 'RC ODESSA', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 2, warehouse: 'RC KIEV', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 3, warehouse: 'RC Radem', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'},
-  {no: 4, warehouse: 'Kiev Warehouse', region: 'CIS', country: 'Ukrine', segments: 'Royal Canin'}
-  
-]; 
+export class WarehouseSearch {
+  constructor(
+  	public secondaryFilterType: string
+  	,public secondaryFilterValue: string
+    ,public primaryFilterType: string
+    ,public primaryFilterValue: string
+  ) {}
+}
