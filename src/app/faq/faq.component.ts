@@ -9,9 +9,14 @@ export class FaqComponent implements OnInit {
 
   //panelOpenState: boolean = false;
 
-  constructor() { }
+  constructor() {   
+    
+  }
 
   ngOnInit() {
+  }
+  setheight(){
+    document.getElementById('parametersPanel').style.height= '48px !important';
   }
 
 }

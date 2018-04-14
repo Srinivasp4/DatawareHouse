@@ -1,6 +1,7 @@
 .warehouses-count {
     text-align:right;
     margin-bottom:10px;
+    margin-top:10px;
   }
   .export{
     text-align:right;
@@ -9,7 +10,8 @@
     margin-right:10px;
   }
   .check-button{
-    margin-left:-23px;
+    margin-left: -23px;
+    margin-bottom: 20px;
   }
   .text-color{
     color:#66afe9;

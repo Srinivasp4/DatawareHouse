@@ -1,6 +1,6 @@
-.review-quiz , .navigation-quiz {
+.navigation-quiz {
     text-align: center;
-    margin: 10px;
+    
 }
 
 h1{
@@ -124,13 +124,17 @@ div.review > div {
 
 }
 @media (min-width: 650px){
-    
-    .question-answer{
-        margin-left: 320px;
+    #quiz{
+        margin-left : 450px;
     }
     }
 
-.primary-div,.secondary-div{
+.secondary-div{
     margin :10px;
 }
+.primary-div{
+    margin: 10px 10px 10px 60px;
+}
+
+
 

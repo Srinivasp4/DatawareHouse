@@ -11,7 +11,7 @@
 				<mat-form-field> <input type="text"
 					class="text form-control primary-search" [(ngModel)]="warehouseSearch.searchStr"
 					name="searchStr" #searchStr="ngModel"
-					(keyup)="applyFilter($event.target.value)" matInput placeholder="Search"> </mat-form-field>
+					(keyup)="applyFilter($event.target.value)" (keypress)="applyFilter($event.target.value)" matInput placeholder="Search"> </mat-form-field>
 			</div>
 		</div>
 		<div class="row">
@@ -119,7 +119,7 @@
 </div>
 <div class="row">
 <div class="col-12 col-md-12 warehouses-count"> 	
-		Warehouses found: {{this.warehousesCount}}
+		Warehouses found: {{warehousesCount}}
 	</div>
 </div>
 <div class="row">
