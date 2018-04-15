@@ -14,8 +14,8 @@ export class WarehouseDetailsComponent implements OnInit {
   ngOnInit() {
   }
 
-  lat: number = 17.3850;
-  lng: number = 78.4867;
+  lat: number = -36.12765443;
+  lng: number = 146.89663278;
 
 
   mapClicked(event){
