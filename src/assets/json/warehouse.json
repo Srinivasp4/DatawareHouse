@@ -5,7 +5,7 @@
     "questions": [
         {
             "id": 1010,
-            "name": "Where can I find all the contracts to renew split by region",
+            "name": "Where can I find all the contracts to renew split by region?",
             "questionTypeId": 1,
             "options": [
 
@@ -43,31 +43,31 @@
         },
         {
             "id": 1011,
-            "name": "The feature in ASP.NET 2.0 that is used to fire a normal postback to a different page in the application is called",
+            "name": "where i can find maps showing near by ware houses?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "Theme",
+                    "name": "On the site first page",
                     "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "Code-front",
+                    "name": "calculator page",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "Cross Page Posting",
+                    "name": "Home page",
                     "isAnswer": true
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "None of the above",
+                    "name": "warehouse list page",
                     "isAnswer": false
                 }
             ],
@@ -79,32 +79,32 @@
         },
         {
             "id": 1012,
-            "name": "What class does the ASP.NET Web Form class inherit from by default?",
+            "name": "FAQ under which category? ",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "System.Web.UI.Page",
-                    "isAnswer": true
+                    "name": "Home",
+                    "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "System.Web.UI.Form",
+                    "name": "Sites",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "System.Web.GUI.Page",
+                    "name": "Calculator",
                     "isAnswer": false
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "System.Web.Form",
-                    "isAnswer": false
+                    "name": "Help",
+                    "isAnswer": true
                 }
             ],
             "questionType": {
@@ -115,25 +115,25 @@
         },
         {
             "id": 1013,
-            "name": "What does MVC stand for?",
+            "name": "How warehouse defines?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "Model View Controller",
+                    "name": "To manage all the warehouse details",
                     "isAnswer": true
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "Maximum Virtual Control",
+                    "name": "To sell products",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "Microsoft Visual Core",
+                    "name": "To categorize things",
                     "isAnswer": false
                 },
                 {
@@ -151,32 +151,32 @@
         },
         {
             "id": 1014,
-            "name": "Which of the following does NOT require type casting?",
+            "name": "can we export warehouse details?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "Session",
-                    "isAnswer": false
+                    "name": "yes",
+                    "isAnswer": true
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "TempData",
+                    "name": "No",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "ViewData",
+                    "name": "May be",
                     "isAnswer": false
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "ViewBag",
-                    "isAnswer": true
+                    "name": "Not sure",
+                    "isAnswer": false
                 }
             ],
             "questionType": {
@@ -187,31 +187,31 @@
         },
         {
             "id": 1015,
-            "name": "Which is the correct order of Page life-cycle in asp.net webform?",
+            "name": "where we can find option to search warehouse and country together?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "Init, PreRender, Load",
+                    "name": "Home page",
                     "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "Load, PreRender, Init",
+                    "name": "FAQ page",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "Init, Load, PreRender",
+                    "name": "Sites page",
                     "isAnswer": true
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "None of the above",
+                    "name": "All of the above",
                     "isAnswer": false
                 }
             ],
@@ -223,31 +223,31 @@
         },
         {
             "id": 1016,
-            "name": "Which of these data source controls do not implement caching?",
+            "name": "can we have rating option in warehouse?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "ObjectDataSource",
-                    "isAnswer": false
+                    "name": "Yes",
+                    "isAnswer": true
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "LinqDataSource",
-                    "isAnswer": true
+                    "name": "No",
+                    "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "SqlDataSource",
+                    "name": "Not sure",
                     "isAnswer": false
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "XmlDataSource",
+                    "name": "May be",
                     "isAnswer": false
                 }
             ],
@@ -259,31 +259,31 @@
         },
         {
             "id": 1017,
-            "name": "Which tag asp:Label control by default renders to?",
+            "name": "where we can check global details of warehouse?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "div",
+                    "name": "FAQ page",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "span",
-                    "isAnswer": true
+                    "name": "Home page",
+                    "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "body",
-                    "isAnswer": false
+                    "name": "calculation page",
+                    "isAnswer": true
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "label",
+                    "name": "Sites page",
                     "isAnswer": false
                 }
             ],
@@ -295,31 +295,31 @@
         },
         {
             "id": 1018,
-            "name": "Which method do you use to explicitly kill a user's session?",
+            "name": "where we can see warehouse region details?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "Session.Terminate()",
+                    "name": "On click of warehouse in sites and calculation",
                     "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "Session.TimeOut()",
+                    "name": "On click of FAQ",
                     "isAnswer": false
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "Session.Abondon()",
+                    "name": "On click of Home",
                     "isAnswer": true
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "Session.Kill()",
+                    "name": "On click of calculator",
                     "isAnswer": false
                 }
             ],
@@ -331,31 +331,31 @@
         },
         {
             "id": 1019,
-            "name": "Which of the following object is ideal for keeping data alive for a single request?",
+            "name": "Is there any option to convert curreny in warehouse?",
             "questionTypeId": 1,
             "options": [
                 {
                     "id": 1055,
                     "questionId": 1010,
-                    "name": "HttpContext",
+                    "name": "Yes",
                     "isAnswer": true
                 },
                 {
                     "id": 1056,
                     "questionId": 1010,
-                    "name": "Session",
+                    "name": "No",
                     "isAnswer": false
                 },
                 {
                     "id": 1057,
                     "questionId": 1010,
-                    "name": "Cookies",
+                    "name": "May be",
                     "isAnswer": false
                 },
                 {
                     "id": 1058,
                     "questionId": 1010,
-                    "name": "SqlServer",
+                    "name": "Not sure",
                     "isAnswer": false
                 }
             ],

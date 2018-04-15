@@ -30,7 +30,7 @@
     </div>
   </div>
   <div class="map">
-  <agm-map [latitude]="lat1" [longitude]="lng1">
+  <agm-map [latitude]="lat1" [longitude]="lng1" [zoom] = "2">
       <agm-marker [latitude]="lat" [longitude]="lng" (markerClick)="redirect()"></agm-marker>
       <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
       <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
