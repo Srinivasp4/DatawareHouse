@@ -7,26 +7,26 @@ import { AgmCoreModule } from '@agm/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent {
-  lat: number = 25.2744;
-  lng: number = 133.7751;
+  lat: number = 38.9637;
+  lng: number = 35.2433;
 
-  lat1: number = 49.7448;
-  lng1: number = 49.0500;
+  lat1: number = 33.2232;
+  lng1: number = 43.6793;
 
-  lat2: number = 12.9716;
-  lng2: number = 77.5946;
+  lat2: number = 39.913818;
+  lng2: number = 116.363625;
 
-  lat3: number = 54.5260;
-  lng3: number = 105.2551;
+  lat3: number = 28.0339;
+  lng3: number = 1.6596;
   
-  lat4: number = 1.3521;
-  lng4: number = 103.8198;
+  lat4: number = 41.8719;
+  lng4: number = 12.5674;
 
-  lat5: number = 28.3949;
-  lng5: number = 84.1240;
+  lat5: number = 17.6078;
+  lng5: number = 8.0817;
 
-  lat6: number = 7.8731;
-  lng6: number = 80.7718;
+  lat6: number = 20.5937;
+  lng6: number = 78.9629;
   
 }
 
