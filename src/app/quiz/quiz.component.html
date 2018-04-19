@@ -99,7 +99,9 @@
 -->
 
 <div class="result" *ngIf="mode=='result'">
-Total Correct answers : {{this.totalScore}}
+  <div class="total-answers">
+      Total Correct answers : {{this.totalScore}}
+  </div>
 <div *ngFor="let question of quiz.questions; let index = index;" class="question-answer">
       <h2>{{index+1}} : <span [innerHTML]="question.name"></span> </h2>
       <div class="row options">

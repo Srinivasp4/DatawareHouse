@@ -21,13 +21,28 @@
        <br>
        <p class="text-color"><b>Contract</b></p>
        <p>Expiration Date:July 2018(in 6 month)</p>
-       <p>Price:35 000 $ for 2 years <button class="btn btn-primary" (click)="onSubmit()">Currency&nbsp;<i class="fa fa-sort-down"></i></button> </p>
+       <p>Price:<input id="to-amount" type="number" [(ngModel)]="toAmount" 
+        (ngModelChange)="calculate(true)"> for 2 years 
+        <select class="btn btn-primary" id="fromCurrency" [(ngModel)]="fromCurrency" (ngModelChange)="convert(false, false)">
+            <option *ngFor="let rate of rates" [value]="rate.id">{{ rate.id }}</option>
+        </select>
+        </p>
+       <p class="error" style="color: red; font-weight: bold;" *ngIf="error">Error: {{ this.error }}</p>
        <p>Pallet Number max:35 000</p>
        <p>Unit of measure:plts avg</p>
        <p>Price Pallet ratio:1</p>
-       <br>
-       
+       <p style="margin-left:100px">
+        <bar-rating name="rating" [(rate)]="movieRating" [max]="5" [theme]="'movie'" [showText]="true"
+                        [titles]="['Bad', 'Medium' , 'Ok', 'Good','Awesome']"  disabled></bar-rating>
+        
+        Your rating: {{movieRating}}
+       </p>
+
+    
      </div>
+
+     
+     
      <div class ="col-md-6 col-sm-6 col-md-6 col-xs-6">
         <agm-map [latitude]="lat" [longitude]="lng" (mapClick)="mapClicked($event)">
             <agm-marker [latitude]="lat" [longitude]="lng">
@@ -37,13 +52,13 @@
             </agm-marker>
             
           </agm-map>
-      </div>
-      <div class="row">
-          <div class="col-12 col-md-12 export"> 
-              <button class="btn btn-primary" (click)="onSubmit()">Export&nbsp;<i class="fa fa-sort-down"></i></button> 
+          <div class="export"> 
+            <button class="btn btn-primary" (click)="exportToExcel()">Export&nbsp;<i class="fa fa-sort-down"></i></button> 
           </div>
-    </div>
+      </div>
   </div>
+
+
 </div>
 
 

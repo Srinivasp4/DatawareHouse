@@ -6,15 +6,21 @@ import {FormBuilder, FormGroup, FormControl, Validators} from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
-
+import { AppComponent } from '../app.component';
+import { PERSONS, Person } from './model';
+import { ExcelService } from './excel.service';
+import { OnInit } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
 
 
 @Component({
   selector: 'app-warehouse-list',
   templateUrl: './warehouse-list.component.html',
-  styleUrls: ['./warehouse-list.component.css']
+  styleUrls: ['./warehouse-list.component.css'],
 })
-export class WarehouseListComponent {
+
+
+export class WarehouseListComponent implements OnInit {
 
 
   WAREHOUSE: Warehouse[] = [
@@ -28,7 +34,8 @@ export class WarehouseListComponent {
   selected;
   private selectedData: Observable<Warehouse[]>;
   warehousesCount;
-  constructor(){
+  
+  ngOnInit(){
     this.selectedData = Observable.of(this.WAREHOUSE);
     this.warehousesCount = this.WAREHOUSE.length;
     this.setFilterTypes();
@@ -39,6 +46,10 @@ export class WarehouseListComponent {
     //console.log(val);
     //this.selectedData = this.WAREHOUSE.filter(x => x.region == val);
   }
+
+  
+
+  
   
   displayedColumns = ['warehouse', 'region', 'country', 'segments'];
   dataSource = new MatTableDataSource(this.WAREHOUSE);
@@ -260,7 +271,17 @@ applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehous
     this.dataSource.sort = this.sort;
   }
 
-  OnInit(){}
+  
+  persons: Person[];
+  constructor(private excelService: ExcelService) {
+    this.excelService = excelService;
+    this.persons = PERSONS;
+  }
+
+  exportToExcel(event) {
+    this.excelService.exportAsExcelFile(PERSONS, 'persons');
+  }
+  
   
 }
 

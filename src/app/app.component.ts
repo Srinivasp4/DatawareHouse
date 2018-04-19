@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { QuizComponent } from './quiz/quiz.component';
+import { ExcelService } from './warehouse-list/excel.service';
+import { WarehouseListComponent } from './warehouse-list/warehouse-list.component';
 
 
 
@@ -9,6 +11,5 @@ import { QuizComponent } from './quiz/quiz.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  
 }
 

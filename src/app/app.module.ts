@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatSortModule, MatTableModule } from "@angular/material";
 import {MatIconModule} from '@angular/material/icon';
 import { AgmCoreModule } from '@agm/core';
+import { ExcelService } from './warehouse-list/excel.service';
 
 
 
@@ -34,7 +35,6 @@ import { UserComponent } from './user/user.component';
 import {HttpClientModule} from '@angular/common/http';
 import {HttpModule} from '@angular/http';
 import {BarRatingModule} from 'ngx-bar-rating';
-import { RatingbarComponent } from './ratingbar/ratingbar.component';
 
 @NgModule({
   declarations: [
@@ -48,8 +48,7 @@ import { RatingbarComponent } from './ratingbar/ratingbar.component';
     NotificationsComponent,
     SettingsComponent,
     HelpComponent,
-    UserComponent,
-    RatingbarComponent
+    UserComponent
   ],
   
   imports: [
@@ -76,7 +75,7 @@ import { RatingbarComponent } from './ratingbar/ratingbar.component';
 
   ],
   exports: [MatButtonModule, MatToolbarModule],
-  providers: [],
+  providers: [ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

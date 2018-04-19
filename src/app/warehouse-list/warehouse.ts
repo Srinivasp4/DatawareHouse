@@ -1,3 +1,6 @@
+import { ExcelService } from './excel.service';
+import { PERSONS, Person } from './model';
+
 export class Warehouse {
   constructor(
   	public warehouse: string

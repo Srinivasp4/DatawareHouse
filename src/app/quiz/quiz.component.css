@@ -65,6 +65,9 @@ div.review > div {
     margin:4px;
     padding:6px;
 }
+.result{
+    margin-left : 400px;
+}
 
     
 /* Create Quiz Styles */
@@ -138,6 +141,12 @@ div.review > div {
 
 .submit{
     margin-left : 70px;
+}
+
+.total-answers{
+    background-color: #66afe9;
+    padding: 22px 22px 22px 130px;
+    width: 54%;
 }
 
 

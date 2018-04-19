@@ -31,7 +31,7 @@
   </div>
   <div class="map">
   <agm-map [latitude]="lat1" [longitude]="lng1" [zoom] = "3">
-      <agm-marker [latitude]="lat" [longitude]="lng" (markerClick)="redirect()"></agm-marker>
+      <agm-marker [latitude]="lat" [longitude]="lng" (markerClick)="redirect()" zoomControl="false" scrollWheel="false"></agm-marker>
       <agm-marker [latitude]="lat1" [longitude]="lng1"></agm-marker>
       <agm-marker [latitude]="lat2" [longitude]="lng2"></agm-marker>
       <agm-marker [latitude]="lat3" [longitude]="lng3"></agm-marker>
