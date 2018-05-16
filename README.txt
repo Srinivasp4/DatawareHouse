@@ -1,0 +1,1 @@
+In order to work with Export functionality we have to copy cpexcel.js from DatawareHouse\cpexcel.js to DatawareHouse\node_modules\xlsx-style\dist\cpexcel.js

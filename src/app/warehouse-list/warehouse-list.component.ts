@@ -272,14 +272,16 @@ applyANDoperator(primaryFilterdList: Warehouse[], secondaryFilterdList: Warehous
   }
 
   
-  persons: Person[];
+  warehouseForExport: Warehouse[];
   constructor(private excelService: ExcelService) {
     this.excelService = excelService;
-    this.persons = PERSONS;
+    this.warehouseForExport = this.filterdList;
+
+    this.filterdList = this.WAREHOUSE;
   }
 
   exportToExcel(event) {
-    this.excelService.exportAsExcelFile(PERSONS, 'persons');
+    this.excelService.exportAsExcelFile(this.filterdList, 'warehouseForExport');
   }
   
   
