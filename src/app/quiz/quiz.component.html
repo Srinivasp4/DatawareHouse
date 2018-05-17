@@ -22,7 +22,7 @@
     <div *ngFor="let question of filteredQuestions;" class="question-answer">
       <h2>Question {{pager.index + 1}}:</h2>
       <h2><span [innerHTML]="question.name"></span></h2>
-      <div class="row options">
+      <div class="options">
         <div class="col-md-12 quiz-options" *ngFor="let option of question.options">
           <div class="option">
             <label class="" [attr.for]="option.id">
